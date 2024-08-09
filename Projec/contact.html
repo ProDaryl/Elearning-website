@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Elearning Website</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="header">
+    <nav>
+      <div class="logo">
+        <img style="height: 62px; width: 90px;" src="images/logo1.jpg" alt="logo">
+        E- <span>Learning</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="course.html">Courses</a></li>
+        <li><a href="teacher.html">Our Teachers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="menu">
+        <li>
+          <a href="#"><i class="fa fa-bars"></i></a>
+        </li>
+      </div>
+    </nav>
+    <div>
+       <!-- Put your image here -->
+       <img style="height: 580px; object-fit:cover; width: 1217.3px; margin-left: auto; margin-right: auto;object-fit: cover;" src="images/contact.png" alt=""> 
+
+    </div>
+  </div>
+
+  <section class="main-section">
+    <div class="title">
+      <h2>Contact Us</h2>
+    </div>
+    <div class="contact-content">
+      <form action="contact_form.php" method="post">
+        <label for="name" style="color: white;">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email" style="color: white;">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message" style="color: white;">Message:</label>
+        <textarea id="message" name="message" rows="10"  required></textarea>
+        
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="end">
+      <p>&copy; 2024 E-Learning. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
