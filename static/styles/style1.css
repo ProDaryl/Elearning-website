@@ -1,0 +1,318 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    background: #333;
+    color: #fff;
+    padding: 15px 0;
+  }
+  
+  .header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .header .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .header ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header ul li {
+    margin: 0 15px;
+  }
+  
+  .header ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .header ul li a:hover {
+    color: #ddd;
+  }
+  
+  .header .menu {
+    display: none;
+  }
+  
+  .content {
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .content h1 {
+    font-size: 48px;
+    margin: 20px 0;
+  }
+  
+  .content h4,
+  .content h3 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .content .newslatter input[type="email"],
+  .content .newslatter input[type="submit"] {
+    padding: 10px;
+    margin: 5px;
+  }
+  
+  .main-section {
+    padding: 50px 20px;
+  }
+  
+  .main-section .title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .main img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .main .about-text {
+    max-width: 500px;
+  }
+  
+  .main .about-text h2 {
+    font-size: 36px;
+  }
+  
+  .main .about-text h5 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .main .about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .service {
+    background: #f4f4f4;
+    padding: 50px 20px;
+  }
+  
+  .service .title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .service .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .service .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .service .card h5 {
+    margin: 20px 0 10px;
+    font-size: 18px;
+  }
+  
+  .service .card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .service .card .button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .service .card .button:hover {
+    background: #555;
+  }
+  
+  .contact-us {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .contact-us p {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-us .button-two {
+    padding: 10px 20px;
+    background: #413f3f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .contact-us .button-two:hover {
+    background: #555;
+  }
+  
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  footer .social a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  footer .social a:hover {
+    color: #ddd;
+  }
+  
+  footer .end {
+    margin-top: 20px;
+  }
+  
+  .course-list,
+  .teacher-list {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+  }
+  
+  .course
+  {
+    
+    justify-content: center;
+    /* text-align: center; */
+  }
+  .teacher {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .course h3,
+  .teacher h3 {
+    margin: 20px 0 10px;
+  }
+  
+  .course p,
+  .teacher p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .contact-content form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .contact-content form label {
+    margin: 10px 0 5px;
+  }
+  
+  .contact-content form input,
+  .contact-content form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .contact-content form input[type="submit"] {
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .contact-content form input[type="submit"]:hover {
+    background: #555;
+  }
+  
+  .dashboard-content .enrollment form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .dashboard-content .enrollment form label {
+    margin: 10px 0 5px;
+  }
+  
+  .dashboard-content .enrollment form input,
+  .dashboard-content .enrollment form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .dashboard-content .enrollment form input[type="submit"] {
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dashboard-content .enrollment form input[type="submit"]:hover {
+    background: #555;
+  }
+  
+  @media (max-width: 768px) {
+    .header nav ul {
+      display: none;
+    }
+  
+    .header .menu {
+      display: block;
+    }
+  
+    .main {
+      flex-direction: column;
+    }
+  }
+  
