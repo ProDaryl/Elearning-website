@@ -5,7 +5,7 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-    return HttpResponse('<h1>Welcome</h1>')
+    return render(request, 'index.html')
 
 def register(request):
     pass
