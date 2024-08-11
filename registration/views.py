@@ -4,5 +4,11 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
 # Create your views here.
-def register(request): 
+def index(request):
+    return HttpResponse('<h1>Welcome</h1>')
+
+def register(request):
+    pass
+
+def login(request):
     pass
