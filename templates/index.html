@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elearning Website</title>
-  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,15 +16,15 @@
 <body style="background-color: rgb(148, 146, 146);">
   <nav style="background-color: rgb(148, 146, 146);">
     <div class="logo">
-      <img style="height: 62px; width: 90px;" src="images/logo1.jpg" alt="logo">
+      <img style="height: 62px; width: 90px;" src="{% static 'images/logo1.jpg' %}" alt="logo">
       E- <span>Learning</span>
     </div>
     <ul>
-      <li><a href="index.html">Home</a></li>
-        <li><a href="course.html">Courses</a></li>
-        <li><a href="teacher.html">Our Teachers</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+      <li><a href="index">Home</a></li>
+        <li><a href="course">Courses</a></li>
+        <li><a href="teacher">Our Teachers</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
     </ul>
     <div class="menu">
       <li>
@@ -36,7 +38,7 @@
   <!-- This section contains the variouse services and about -->
   <section class="main-section">
     <div class="main">
-      <img src="images/background3 (1).jpg" alt="">
+      <img src="{%  static 'images/background3 (1).jpg' %}" alt="">
       <div class="about-text">
         <h2>Our Lecturers</h2>
         <h5> Flexible Learning <span>& Certified Instructors</span></h5>
@@ -44,7 +46,7 @@
           Discover new skills, let your passion climb. Here every lesson's a step you take, Toward a brighter future in the path you
           make.
           Welcome Learner your journey begins take knowledgen in hand.</p>
-        <button type="button">Sart Learning</button>
+        <a href="signup"><button type="button">Start Learning</button></a>
       </div>
     </div>
   </section>
