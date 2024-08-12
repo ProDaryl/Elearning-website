@@ -1,84 +1,86 @@
 /* styles.css */
 
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 350px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 350px;
 }
 
 .container {
-    width: 450px; 
+  width: 450px;
 }
 
 .logo-container img {
-    width: 100px;
-    height: auto;
+  width: 100px;
+  height: auto;
 }
 
 .logo-container h1 {
-    margin: 10px 0;
-    font-size: 24px;
-    color: #333;
+  margin: 10px 0;
+  font-size: 24px;
+  color: #333;
 }
 
 .form-container {
-    margin-inline: 2rem;
+  margin-inline: 2rem;
 }
 
 form {
-    display: block;
+  display: block;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    background: linear-gradient(45deg, #ff6b6b, #f06595);
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background: linear-gradient(45deg, #ff6b6b, #f06595);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-    background: linear-gradient(45deg, #f06595, #ff6b6b);
+  background: linear-gradient(45deg, #f06595, #ff6b6b);
 }
 
 p {
-    margin: 15px 0 0;
-    font-size: 14px;
-    color: #666;
+  margin: 15px 0 0;
+  font-size: 14px;
+  color: #666;
 }
 
 p a {
-    color: #ff6b6b;
-    text-decoration: none;
-    font-weight: bold;
+  color: #ff6b6b;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 p a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }

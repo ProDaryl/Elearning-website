@@ -7,6 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup - Eduflectra</title>
     <link rel="stylesheet" href="{% static 'signup/styles.css' %}" />
+    <style>
+      .error-message {
+        color: #ff4d4d;
+        font-size: 14px;
+        margin-bottom: 15px;
+        background-color: #ffe6e6;
+        border: 1px solid #ff4d4d;
+        padding: 10px;
+        border-radius: 5px;
+        animation: fadeout 7s forwards;
+      }
+
+      @keyframes fadeout {
+        from {
+          display: block;
+        }
+
+        to {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -18,7 +40,12 @@
       </div>
 
       <div class="form-container">
-        <form id="signup-form" class="active">
+        {% for message in messages %}
+        <div class="error-message" id="signup-error">{{message}}</div>
+        {% endfor %}
+
+        <form id="signup-form" class="active" method="POST" , action="signup">
+          {% csrf_token %}
           <h2>Signup</h2>
           <input type="text" placeholder="Username" name="username" required />
           <input type="email" placeholder="Email" name="email" required />

@@ -9,17 +9,21 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
-        username = request.POST('username')
-        email = request.POST('email')
-        password = request.POST('password')
-        confirm_pass = request.POST('confirmPass')
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        confirm_pass = request.POST['confirmPass']
 
         if password == confirm_pass:
-            if User.objects.filter(username=username).exists() or User.objects.filter(email=email).exists():
+            if User.objects.filter(email=email).exists():
+                messages.info(request, 'Email already used')
+                return redirect('register')
+            elif User.objects.filter(username=username).exists():
                 messages.info(request, 'User already exists')
-                return redirect('signup')
+                return redirect('register')
             else:
                 user = User.objects.create_user(username=username, email=email, password=password)
+                user.save()
                 return redirect('dashboard')
         else:
             messages.info(request, 'Passwords mismatch')
@@ -31,4 +35,17 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 def login(request):
-    return render(request, 'login.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('dashboard')
+        else:
+            messages.info(request, 'Invalid Credentials')
+            return redirect('login')
+    else:
+     return render(request, 'login.html')
