@@ -4,13 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-  margin: 0 auto;
+  margin:0 auto;
   max-width: 800px;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 .container {
-  border: 2px solid #dedede;
+  border: 2px solid #772929;
   background-color: #f1f1f1;
   border-radius: 5px;
   padding: 10px;
@@ -18,8 +18,8 @@ body {
 }
 
 .darker {
-  border-color: #ccc;
-  background-color: #ddd;
+  border-color: #a74a4a;
+  background-color: #993535;
 }
 
 .container::after {
@@ -55,8 +55,8 @@ body {
 </head>
 <body>
 
-<div align="center">
-    <h2>chatgroup</h2>
+<div align="center " >
+    <h2>CHAT GROUP</h2>
 </div>
 
 
@@ -96,8 +96,8 @@ body {
 
     <form id="post-form" method="POST" action="checkview">
         {% csrf_token %}
-        <label>Room Name</label>
-        <input type="text" name="room_name" id="room_name" width="100px" />
+        <label>course</label>
+        <input type="text" name="course_name" id="course_name" width="100px" />
         <label>Username</label>
         <input type="text" name="username" id="username" width="100px" />
         <input type="submit" value="Enter Room">
