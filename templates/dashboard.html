@@ -27,20 +27,26 @@
         <ul>
           <li><a href="index">Home</a></li>
           <li class="dropdown">
-            <a href="course">Courses <i class="fa fa-caret-down"></i></a>
+            <a href="#" class="dropdown-toggle" tabindex="0">Our Teachers <i class="fa fa-caret-down"></i></a>
             <ul class="dropdown-content">
-              <li><a href="#">Development</a></li>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Business</a></li>
+                <li><a href="#">Professor John</a></li>
+                <li><a href="#">Professor Ndifor</a></li>
+                <li><a href="#">Professor Olivia</a></li>
+                <li><a href="#">Professor Ateh</a></li>
+                <li><a href="#">Professor Palma</a></li>
+                <li><a href="#">Professor Mark</a></li>
             </ul>
-          </li>
+        </li>
+        
           <li class="dropdown">
             <a href="teacher">Our Teachers <i class="fa fa-caret-down"></i></a>
             <ul class="dropdown-content">
               <li><a href="#">Prefessor John</a></li>
               <li><a href="#">Professor Ndifor</a></li>
               <li><a href="#">Professor Olivia</a></li>
+              <li><a href="#">Professor Ateh</a></li>
+              <li><a href="#">Professor Palma</a></li>
+              <li><a href="#">Professor Mark</a></li>
             </ul>
           </li>
           <li><a href="about">About</a></li>
@@ -51,43 +57,59 @@
           <button><i class="fa fa-search"></i></button>
         </div>
         <div class="user-info">
-          <a href="#"><i class="fa fa-user"></i> My Account</a>
-        </div>
+          <a href="#">
+              <img src="path_to_profile_picture.jpg" alt="Profile Picture" class="profile-pic">
+              <i class="fa fa-user"></i> My Account
+          </a>
+      </div> 
       </nav>
     </div>
-
-    <section class="main-section">
-      <div class="title">
-        <h2>Dashboard</h2>
-      </div>
+    <div class="title">
+      <h2><i class="fa fa-tachometer"></i> Dashboard</h2>
+  </div>  
+   <section class="main-section">
       <div class="dashboard-content">
         <div class="dashboard-section">
           <h3>Recommended Courses</h3>
-          <div class="course-cards">
-            <div class="course-card">
-              <img style="height: 150px; width: 150px; object-fit: contain;" src="{% static 'images/lectures.jpg' %}" alt="Course 1" />
-              <h4>Programming with HTML and CSS</h4>
-              <p>This course mostky deal with the Frontend Development.</p>
-              <a href="#">View Course</a>
-            </div>
-            <div class="course-card">
-              <img style="height: 150px; width: 150px; object-fit: contain;"  src="{% static 'images/modern react.jpg' %}" alt="Course 2" />
-              <h4>modern react with redux</h4>
-              <p>
-                Memory updated
-                Modern React with Redux focuses on building scalable, maintainable web applications using React for 
-                the UI and Redux for state management.</p>
-              <a href="#">View Course</a>
-            </div>
-            <div class="course-card">
-              <img style="height: 150px; width: 150px; object-fit: contain;" src="{% static 'images/Django.jpeg' %}" alt="Course 3" />
-              <h4>Backend Development with Python & Django</h4>
-              <p>Backend Development with Python & Django involves creating robust and 
-                scalable server-side applications.</p>
-              <a href="#">View Course</a>
-            </div>
-          </div>
-        </div>
+<div class="course-grid">
+    <div class="course-card">
+        <img style="height: 150px; width: 280px; object-fit: contain;" src="{% static 'images/lectures.jpg' %}" alt="Course 1" />
+        <h4>Programming with HTML and CSS</h4>
+        <p>HTML structures the content of a webpage, while CSS styles and arranges that content to improve its visual presentation and user experience. Together, they form the foundational 
+          technologies for building and designing websites</p>
+        <a href="#">View Course</a>
+    </div>
+    <div class="course-card">
+        <img style="height: 280px; width: 250px; object-fit: contain;" src="{% static 'images/modern react.jpg' %}" alt="Course 2" />
+        <h4>Modern React with Redux</h4>
+        <p>Modern React with Redux focuses on building scalable, maintainable web applications using React for the UI and Redux for state management.</p>
+        <a href="#">View Course</a>
+    </div>
+    <div class="course-card">
+        <img style="height: 300px; width: 250px; object-fit: contain;" src="{% static 'images/Django.jpeg' %}" alt="Course 3" />
+        <h4>Backend Development with Python & Django</h4>
+        <p>Backend Development with Python & Django involves creating robust and scalable server-side applications.</p>
+        <a href="#">View Course</a>
+    </div>
+    <div class="course-card">
+        <img style="height: 250px; width: 250px; object-fit: contain;" src="{% static 'images/python.jpeg' %}" alt="Course 4" />
+        <h4>Programming in Python</h4>
+        <p>Python is a high-level, interpreted programming language known for its simplicity and readability.</p>
+        <a href="#">View Course</a>
+    </div>
+    <div class="course-card">
+        <img style="height: 250px; width: 250px; object-fit: contain;" src="{% static 'images/software.jpeg' %}" alt="Course 5" />
+        <h4>Software Development</h4>
+        <p>The process of designing, coding, testing, and maintaining software applications or systems.</p>
+        <a href="#">View Course</a>
+    </div>
+    <div class="course-card">
+        <img style="height: 250px; width: 250px; object-fit: contain;" src="{% static 'images/network.jpeg' %}" alt="Course 6" />
+        <h4>Networking and Management</h4>
+        <p>Networking and Management involves creating robust and scalable network infrastructure.</p>
+        <a href="#">View Course</a>
+    </div>
+</div>
         <div class="dashboard-section">
           <h3>Your Progress</h3>
           <div class="progress-tracker">
@@ -127,7 +149,11 @@
               <p>Enrolled on: 2024-09-04</p>
               <a href="#">View Details</a>
             </div>
-          </div>
+            <div class="enrollment-card">
+                <h4>Software Development</h4>
+                <p>Enrolled on: 2024-09-04</p>
+                <a href="#">View Details</a>
+            </div>
         </div>
       </div>
     </section>
