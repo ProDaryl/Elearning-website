@@ -1,11 +1,25 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+
+# Role selection view
+def select_role(request):
+    return render(request, 'select_role.html')
+
+# Dynamic form view
+def role_form(request):
+    role = request.GET.get('role')
+
+    if role not in ['student', 'teacher']:
+        return HttpResponseBadRequest("Invalid role selected.")
+
+    context = {'role': role}
+    return render(request, 'login.html', context)
 
 def register(request):
     if request.method == 'POST':

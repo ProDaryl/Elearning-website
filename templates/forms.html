@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Eduflectra</title>
+    <link rel="stylesheet" href="{% static 'styles/roles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="{% static 'images/logo1.jpg' %}" alt="Eduflectra Logo">
+            <h1>Eduflectra</h1>
+        </div>
+
+        <div class="form-container">
+            <!-- Error message placeholder -->
+            <div class="error-message" id="form-error"></div>
+
+            <form id="dynamic-form" method="POST" action="{% url 'forms' %}">
+                {% csrf_token %}
+                <h2 id="form-title">
+                    {% if role == 'student' %}
+                        Student Signup
+                    {% else %}
+                        Teacher Signup
+                    {% endif %}
+                </h2>
+
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+
+                {% if role == 'student' %}
+                    <input type="text" name="student_id" placeholder="Student ID" required>
+                    <input type="text" name="major" placeholder="Major/Field of Study" required>
+                {% elif role == 'teacher' %}
+                    <input type="text" name="teacher_id" placeholder="Teacher ID" required>
+                    <input type="text" name="department" placeholder="Department" required>
+                    <input type="text" name="experience" placeholder="Years of Experience" required>
+                {% endif %}
+
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
