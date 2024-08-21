@@ -8,4 +8,6 @@ venv
 
 .venv
 
+dashboard/migrations/*
+
 *.pyc
