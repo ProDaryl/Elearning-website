@@ -272,35 +272,220 @@ body {
     background: #555;
   }
   
-  .dashboard-content .enrollment form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .dashboard-content .enrollment form label {
-    margin: 10px 0 5px;
-  }
-  
-  .dashboard-content .enrollment form input,
-  .dashboard-content .enrollment form select {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .dashboard-content .enrollment form input[type="submit"] {
-    background: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .dashboard-content .enrollment form input[type="submit"]:hover {
-    background: #555;
-  }
+ /* Navigation Bar */
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.header nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.header nav ul li {
+  margin-left: 20px;
+  position: relative;
+}
+
+.header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header nav ul li:hover .dropdown-content {
+  display: inline-block;
+}
+/* Basic styles for the dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none; /* Hide dropdown by default */
+  position: absolute;
+  background-color: #242323;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content li {
+  width: 100%;
+}
+
+.dropdown-content li a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content li a:hover {
+  background-color: #2c2c2c;
+}
+.dropdown .dropdown-toggle:focus + .dropdown-content {
+  display: block;
+}
+
+.dropdown .dropdown-content {
+  display: none;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  outline: none;
+}
+
+
+
+
+.search-bar {
+  display: flex;
+}
+
+.search-bar input {
+  padding: 5px;
+  border: none;
+  border-radius: 3px 0 0 3px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #555;
+  color: #fff;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #666;
+}
+/*user profile*/
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.user-info .profile-pic {
+  width: 30px;  
+  height: 30px;
+  border-radius: 30%;  
+  margin-right: 8px; 
+}
+.title {
+  text-align: left; 
+  margin-bottom: 20px;
+  padding-left: 20px;  
+}
+
+.title h2 {
+  font-size: 24px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.title .fa-tachometer {
+  margin-right: 8px; 
+}
+
+.user-info .fa-user {
+  margin-left: 5px;  
+}
+
+
+/* Course Cards */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Space between the cards */
+}
+
+.course-card {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.course-card img {
+  margin-bottom: 10px;
+}
+
+.course-card h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.course-card a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.course-cards, .progress-tracker, .enrollment-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.course-card, .enrollment-card, .progress-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.course-card h4, .enrollment-card h4, .progress-item h4 {
+  margin: 10px 0;
+}
+
+.course-card p, .enrollment-card p, .progress-item p {
+  margin: 5px 0;
+  color: #777;
+}
+
+.course-card a, .enrollment-card a {
+  display: block;
+  text-align: center;
+  padding: 8px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+ 
+}
   
   @media (max-width: 768px) {
     .header nav ul {
