@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Role - Eduflectra</title>
+    <link rel="stylesheet" href="{% static 'styles/role.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="{% static 'images/logo1.jpg' %}" alt="Eduflectra Logo">
+            <h1>Eduflectra</h1>
+        </div>
+
+        <div class="form-container">
+            <h2>Select Your Role</h2>
+            <button onclick="location.href='{% url 'forms' %}?role=student'">I am a Student</button>
+            <button onclick="location.href='{% url 'forms' %}?role=teacher'">I am a Teacher</button>
+        </div>
+    </div>
+</body>
+</html>
