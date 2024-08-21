@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Teachers - Elearning Website</title>
-  <link rel="stylesheet" href="styles/style1.css" />
+  <link rel="stylesheet" href="{% static 'styles/style1.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
@@ -13,20 +15,18 @@
   <div class="header">
     <nav>
       <div class="logo">
-        <img style="height: 62px; width: 90px;" src="images/logo1.jpg" alt="logo">
+        <img style="height: 62px; width: 90px;" src="{% static 'images/logo1.jpg' %}" alt="logo">
         E- <span>Learning</span>
       </div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="course.html">Courses</a></li>
-        <li><a href="teacher.html">Our Teachers</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'course' %}">Courses</a></li>
+        <li><a href="{% url 'teacher' %}">Our Teachers</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
       </ul>
       <div class="menu">
-        <li>
-          <a href="#"><i class="fa fa-bars"></i></a>
-        </li>
+        <a href="#"><i class="fa fa-bars"></i></a>
       </div>
     </nav>
   </div>
@@ -37,35 +37,34 @@
     </div>
     <div class="teacher-list">
       <div class="teacher">
-        <img style="height: 80px; width: 80px;" src="images/professoe2.jpeg" alt="Teacher 1">
+        <img style="height: 80px; width: 80px;" src="{% static 'images/professor2.jpeg' %}" alt="Teacher 1">
         <h3>Professor John</h3>
         <p>Lecturer for Python Programming</p>
       </div>
       <div class="teacher">
-        <img style="height: 80px; width: 80px; object-fit: contain;" src="images/professor3.jpg" alt="Teacher 2">
+        <img style="height: 80px; width: 80px; object-fit: contain;" src="{% static 'images/professor3.jpg' %}" alt="Teacher 2">
         <h3>Professor Ndifor</h3>
-        <p>Lecturer for Java Programming.</p>
+        <p>Lecturer for Java Programming</p>
       </div>
       <div class="teacher">
-        <img style="height: 85px; width: 100px; object-fit: cover;" src="images/professor.jpg" alt="Teacher 3">
+        <img style="height: 85px; width: 100px; object-fit: cover;" src="{% static 'images/professor.jpg' %}" alt="Teacher 3">
         <h3>Madam Olivia</h3>
-        <p>Lecturer for Data Analysis.</p>
+        <p>Lecturer for Data Analysis</p>
       </div>
       <div class="teacher">
-        <img style="height: 80px; width: 80px; object-fit: contain;" src="images/proffessor5.png" alt="teacher 4">
+        <img style="height: 80px; width: 80px; object-fit: contain;" src="{% static 'images/professor5.png' %}" alt="Teacher 4">
         <h3>Professor Mark</h3>
         <p>Lecturer for Mathematics</p>
       </div>
       <div class="teacher">
-        <img  style="height: 80px; width: 150px; object-fit: cover;"src="images/professor4.jpg" alt="Teacher 5">
-        
+        <img style="height: 80px; width: 150px; object-fit: cover;" src="{% static 'images/professor4.jpg' %}" alt="Teacher 5">
         <h3>Professor Palma</h3>
         <p>Lecturer for Networking and Management</p>
       </div>
       <div class="teacher">
-        <img style="height: 85px; width: 95px; object-fit: cover;" src="images/proffessor6.jpg" alt="Teacher 6">
+        <img style="height: 85px; width: 95px; object-fit: cover;" src="{% static 'images/professor6.jpg' %}" alt="Teacher 6">
         <h3>Madam Ateh</h3>
-        <p>Lecturer for Computer Organization </p>
+        <p>Lecturer for Computer Organization</p>
       </div>
     </div>
   </section>
@@ -82,7 +81,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="{% static 'script.js' %}"></script>
 </body>
 
 </html>
