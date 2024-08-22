@@ -1,11 +1,18 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.contrib.auth.models import User, auth
+from django.contrib.auth import logout
 from django.contrib import messages
+from .forms import SignUpForm
+from dashboard import views
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+
+def log_out(request):
+    logout(request)
+    return redirect('/')
 
 # Role selection view
 def select_role(request):
@@ -45,8 +52,8 @@ def register(request):
     else:
         return render(request, 'signup.html')
             
-def dashboard(request):
-    return render(request, 'dashboard.html')
+# def dashboard(request):
+#     return render(request, 'dashboard.html')
 
 def login(request):
     if request.method == 'POST':
