@@ -105,6 +105,31 @@ a:hover {
     height: 210px;
 }
 
+/* Style for the entire nav-item inside the navbar */
+.navbar .nav-item {
+    display: flex;
+    align-items: center; /* Vertically center the image and link */
+    padding: 5px; /* Padding inside the nav-item */
+    margin-right: 15px; /* Space between nav items */
+}
+
+/* Style for the image inside the navbar */
+.navbar .nav-item img {
+    border-radius: 50%; /* Circular profile picture */
+    margin-right: 8px; 
+    border: 2px solid #ccc; 
+    width: 20px; 
+    height: 20px; 
+}
+
+
+/* Add hover effect for the link inside the navbar */
+.navbar .nav-link:hover {
+    color: #dddddd; /* Lighten the color on hover */
+    text-decoration: underline; /* Underline the link on hover */
+}
+
+
 /* .card:hover {
     opacity: 0.9;
     transform: scale(1.02);

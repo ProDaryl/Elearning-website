@@ -3,11 +3,14 @@ from  . forms import *
 from django.contrib import messages
 from django.views import generic
 from youtubesearchpython import VideosSearch
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
 def dash_board(request):
     return render(request, 'dashboard/home.html')
 
+@login_required
 def notes(request):
     if request.method == 'POST':
         form = NotesForm(request.POST)
@@ -21,6 +24,7 @@ def notes(request):
     context = {'notes' : notes,'form' : form}
     return render(request, 'dashboard/notes.html', context)
 
+@login_required
 def delete_note(request, pk=None):
     Notes.objects.get(id = pk).delete()
     return redirect("notes")
@@ -29,7 +33,7 @@ class NotesDetailView(generic.DetailView):
     model = Notes
 
 
-
+@login_required
 def homework(request):
     if request.method == 'POST':
         form = HomeWorkForm(request.POST)
@@ -77,7 +81,6 @@ def update_homework(request, pk=None):
         homework.is_finished = True
     homework.save()
     return redirect('homework')
-
 
 def delete_homework(request, pk=None):
     Homework.objects.get(id=pk).delete()

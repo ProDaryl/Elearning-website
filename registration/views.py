@@ -3,7 +3,8 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import logout
 from django.contrib import messages
-from .forms import SignUpForm
+from django.contrib.auth.decorators import login_required
+# from .forms import ProfileUpdateForm, UserUpdateForm
 from dashboard import views
 
 # Create your views here.
@@ -27,6 +28,32 @@ def role_form(request):
 
     context = {'role': role}
     return render(request, 'login.html', context)
+
+@login_required
+def profile(request):
+    return render(request, 'profile.html')
+    
+
+@login_required
+def edit_profile(request):
+    # if request.method == 'POST':
+    #     u_form = UserUpdateForm(request.POST, instance=request.user)
+    #     p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+    #     if u_form.is_valid() and p_form.is_valid():
+    #         u_form.save()
+    #         p_form.save()
+    #         messages.success(request, 'Your profile has been updated successfully!')
+    #         return redirect('profile')
+    # else:
+    #     # u_form = UserUpdateForm(instance=request.user)
+    #     # p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    # # context = {
+    # #     'u_form': u_form,
+    # #     'p_form': p_form
+    # # }
+
+    return render(request, 'edit_profile.html')
 
 def register(request):
     if request.method == 'POST':
@@ -54,6 +81,10 @@ def register(request):
             
 # def dashboard(request):
 #     return render(request, 'dashboard.html')
+
+@login_required
+def profile(request):
+    return render(request, 'profile.html')
 
 def login(request):
     if request.method == 'POST':

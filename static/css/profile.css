@@ -1,0 +1,84 @@
+/* General styles for the profile page */
+.profile-page {
+    max-width: 800px;
+    margin: 0 auto; /* Center the profile page */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; 
+    border: 3px solid #007bff; 
+    margin-right: 20px; /
+}
+
+.profile-info {
+    flex-grow: 1; 
+}
+
+.profile-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    color: #007bff; 
+}
+
+.profile-bio {
+    font-size: 16px;
+    color: #666; 
+}
+
+/* Profile content styles */
+.profile-content {
+    margin-top: 20px;
+}
+
+.profile-content h2 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #007bff; 
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.profile-content p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.activity-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.activity-list li {
+    margin-bottom: 10px;
+}
+
+/* Edit profile button */
+.edit-profile-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.edit-profile-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

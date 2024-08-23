@@ -27,7 +27,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Student Study Portal</a>
+          <a class="navbar-brand" href="{% url 'dashboard' %}">Student Study Portal</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -46,9 +46,6 @@
             <ul class="navbar-nav mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -82,14 +79,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">Logout</a>
               </li>
-              {% if request.user.is_authenticated %}
+
               <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-              </li>
-              {% endif %}
+                <a class="nav-link" href="{% url 'profile' %}">
+                    <img src="{% static 'images/default-profile-pic.png' %}" alt="Profile-Pic" width="20" height="20">
+                    Profile
+                </a>
+            </li>
+            
+              
             </ul>
           </div>
         </div>
