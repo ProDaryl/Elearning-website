@@ -6,6 +6,7 @@ from . import views
 
 
 urlpatterns = [
+    # path('', include('registration.urls')),
     path('', views.index, name='index'),
     path('index', views.index, name='index'),
     path('signup', views.register, name='signup'),

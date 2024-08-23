@@ -86,6 +86,21 @@ def register(request):
 def profile(request):
     return render(request, 'profile.html')
 
+def course(request):
+    return render(request, 'course.html')
+# Teacher page view
+def teacher(request):
+    return render(request, 'teacher.html')
+
+# About page view
+def about(request):
+    return render(request, 'about.html')
+
+# Contact page view
+def contact(request):
+    return render(request, 'contact.html')
+
+
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -101,3 +116,4 @@ def login(request):
             return redirect('login')
     else:
      return render(request, 'login.html')
+ 

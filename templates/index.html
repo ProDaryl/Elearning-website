@@ -6,52 +6,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elearning Website</title>
+  <title>Elearning Learning</title>
   <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Embedded CSS for Center-Aligning the Navigation Menu -->
+  <style>
+    /* Center-align the navigation menu items */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin: 0 15px; /* Adjust spacing between items */
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333; /* Adjust color as needed */
+      font-weight: bold; /* Optional: make the text bold */
+    }
+
+    /* Adjust the logo positioning to be centered with the menu */
+    nav .logo {
+      text-align: left;
+      flex: 1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+    }
+  </style>
 </head>
 
-<body style="background-color: rgb(148, 146, 146);">
-  <nav style="background-color: rgb(148, 146, 146);">
+<body style="background-color: white;">
+  <nav>
     <div class="logo">
-      <img style="height: 62px; width: 90px;" src="{% static 'images/logo1.jpg' %}" alt="logo">
-      E- <span>Learning</span>
+      <img style="height: 62px; width: 85px;" src="{% static 'images/logo1.jpg' %}" alt="logo">
+      <span style="font-weight: bold; color: #333;"></span>
+      <span style="color: #bb2b2b;">E-</span><span style="color: #bb2b2b;">Learning</span>
     </div>
     <ul>
-      <li><a href="index">Home</a></li>
-        <li><a href="course">Courses</a></li>
-        <li><a href="teacher">Our Teachers</a></li>
-        <li><a href="about">About</a></li>
-        <li><a href="contact">Contact</a></li>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'course' %}">Courses</a></li>
+      <li><a href="{% url 'teacher' %}">Our Teachers</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+      <li><a href="{% url 'login' %}">Login</a></li>
+      <li><a href="{% url 'signup' %}">Sign Up</a></li>
     </ul>
-    <div class="menu">
-      <li>
-        <a href="#"><i class="fa fa-bars"></i></a>
-      </li>
+
     </div>
   </nav>
-  
 
-  </div>
-  <!-- This section contains the variouse services and about -->
+  <!-- This section contains the various services and about -->
   <section class="main-section">
     <div class="main">
-      <img src="{%  static 'images/background3 (1).jpg' %}" alt="">
+      <img src="{% static 'images/background3 (1).jpg' %}" alt="">
       <div class="about-text">
         <h2>Our Lecturers</h2>
-        <h5> Flexible Learning <span>& Certified Instructors</span></h5>
+        <h5>Flexible Learning <span>& Certified Instructors</span></h5>
         <p>Step into a world, where knowledge thrives, A place where curious minds can rise. Learn at your own space, your own time. 
           Discover new skills, let your passion climb. Here every lesson's a step you take, Toward a brighter future in the path you
           make.
-          Welcome Learner your journey begins take knowledgen in hand.</p>
+          Welcome Learner, your journey begins take knowledge in hand.</p>
         <a href="signup"><button type="button">Start Learning</button></a>
       </div>
     </div>
   </section>
 
-  <!-- New section for the variouse services offered -->
+  <!-- New section for the various services offered -->
   <div class="service">
     <div class="title">
       <h2>Our Services</h2>
@@ -63,8 +97,8 @@
         <h5>Expert-led Courses</h5>
         <div class="pra">
           <p>
-            Learn From industry experts with courses designed to
-            provide you with the real world skills and knowledge.
+            Learn from industry experts with courses designed to
+            provide you with the real-world skills and knowledge.
             Our instructors are professionals with years of experience
             in their fields.
           </p>
@@ -82,8 +116,8 @@
         <h5>Expert-led Courses</h5>
         <div class="pra">
           <p>
-            Learn From industry experts with courses designed to
-            provide you with the real world skills and knowledge.
+            Learn from industry experts with courses designed to
+            provide you with the real-world skills and knowledge.
             Our instructors are professionals with years of experience
             in their fields.
           </p>
@@ -95,14 +129,14 @@
         </div>
       </div>
 
-
+   
       <div class="card">
         <i class="fa-regular fa-bell"></i>
         <h5>Expert-led Courses</h5>
         <div class="pra">
           <p>
-            Learn From industry experts with courses designed to
-            provide you with the real world skills and knowledge.
+            Learn from industry experts with courses designed to
+            provide you with the real-world skills and knowledge.
             Our instructors are professionals with years of experience
             in their fields.
           </p>
@@ -119,8 +153,8 @@
         <h5>Expert-led Courses</h5>
         <div class="pra">
           <p>
-            Learn From industry experts with courses designed to
-            provide you with the real world skills and knowledge.
+            Learn from industry experts with courses designed to
+            provide you with the real-world skills and knowledge.
             Our instructors are professionals with years of experience
             in their fields.
           </p>
@@ -130,7 +164,7 @@
             </a>
           </p>
         </div>
-
+ 
       </div>
     </div>
     <!-- Contact us at -->
@@ -139,31 +173,31 @@
       <a href="" class="button-two">Enroll now!</a>
     </div>
     <!-- footer-start of the website -->
-<footer>
-  <p>
-    Eduflectra.com
-  </p>
-  <p>
-    More about us are courses - please click on the link below to
-    enroll into one our course
-  </p>
-  <div class="social">
-    <a href="#">
-      <i class="fa-brands fa-facebook"></i>
-    </a>
-    <a href="#">
-      <i class="fa-brands fa-x-twitter"></i>
-    </a>
-    <a href="#">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-    <a href="#">
-      <i class="fa-brands fa-linkedin"></i></a>
-    <a href="#">
-      <i class="fa-brands fa-github"></i>    </a>
-  </div>
-  <p class="end">CopyRight By Group6</p>
-</footer>
-</body>
+    <footer>
+      <p>Eduflectra.com</p>
+      <p>
+        More about our courses - please click on the link below to
+        enroll in one of our courses
+      </p>
+      <div class="social">
+        <a href="#">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="#">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="#">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#">
+          <i class="fa-brands fa-linkedin"></i></a>
+        <a href="#">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+      <p class="end">CopyRight By Group6</p>
+    </footer>
+  
+  </body>
 
-</html>
+  </html>
