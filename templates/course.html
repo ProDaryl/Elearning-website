@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Courses - Elearning Website</title>
-  <link rel="stylesheet" href="styles/style1.css" />
+  <link rel="stylesheet" href="{% static 'styles/style1.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
@@ -13,15 +15,15 @@
   <div class="header">
     <nav>
       <div class="logo">
-        <img style="height: 50px; width: 50px;" src="images/logo1.jpg" alt="logo">
+        <img style="height: 50px; width: 50px;" src="{% static 'images/logo1.jpg' %}" alt="logo">
         E- <span>Learning</span>
       </div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="course.html">Courses</a></li>
-        <li><a href="teacher.html">Our Teachers</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'course' %}">Courses</a></li>
+        <li><a href="{% url 'teacher' %}">Our Teachers</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
       </ul>
       <div class="menu">
         <li>
@@ -30,7 +32,7 @@
       </div>
     </nav>
     <div>
-      <img style="height: 475.8px; width: 1217.3px; margin-left: auto; margin-right: auto;object-fit: cover;" src="images/thumnail.jpg" alt="">
+      <img style="height: 475.8px; width: 1217.3px; margin-left: auto; margin-right: auto;object-fit: cover;" src="{% static  'images/thumnail.jpg' %}" alt="">
     </div>
   </div>
 
@@ -71,18 +73,7 @@
         </div>
       </div>
 
-      <div class="course" ></div>
-        <div class="video">
-          <video width="320" height="240" controls>
-            <source src="path_to_video_1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="discription">
-          <h3>Java Programming</h3>
-          <p>Description for Java Programming.</p>
-        </div>
-      </div>
+
 
 
       <div class="course" style()>
@@ -93,11 +84,12 @@
           </video>
         </div>
         <div class="discription">
-          <h3>Data Analysis</h3>
-          <p>Description for Data Analysis</p>
+          <h3>Java Programming </h3>
+          <p>Description for Java Programming</p>
         </div>
       </div>
 
+      
       <div class="course" style()>
         <div class="video">
           <video width="320" height="240" controls>
@@ -121,6 +113,20 @@
         <div class="discription">
           <h3>Computer Organization</h3>
           <p>Description for Computer Organization.</p>
+        </div>
+      </div>
+    <div>
+
+      <div class="course" style()>
+        <div class="video">
+          <video width="320" height="240" controls>
+            <source src="path_to_video_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="discription">
+          <h3>Data Analysis</h3>
+          <p>Description for Data Analysis.</p>
         </div>
       </div>
     <div>
