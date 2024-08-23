@@ -4,6 +4,12 @@
 
 .venv
 
-
-
 db.sqlite3
+
+venv
+
+.venv
+
+dashboard/migratons/*
+
+*.pyc
