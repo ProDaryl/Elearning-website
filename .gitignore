@@ -8,16 +8,8 @@ venv
 
 .venv
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 *.pyc
-=======
-dashboard/migrations/*
 
-*.pyc
->>>>>>> pages
-=======
 dashboard/migratons/*
 
 *.pyc
->>>>>>> 1631a8e1a0468c37b92b59c1a6f3b4158cb451ba
