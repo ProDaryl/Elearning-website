@@ -5,10 +5,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Elearning Website</title>
+  <title>Contact - E-Learning Website</title>
   <link rel="stylesheet" href="{% static 'styles/style1.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  
 </head>
 
 <body>
@@ -21,7 +20,6 @@
       <ul>
         <li><a href="{% url 'index' %}">Home</a></li>
         <li><a href="{% url 'course' %}">Courses</a></li>
-        <li><a href="{% url 'teacher' %}">Our Teachers</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
       </ul>
@@ -30,40 +28,47 @@
           <a href="#"><i class="fa fa-bars"></i></a>
         </li>
       </div>
-    </nav></div>
+    </nav>
+  </div>
+  
   <section class="main-section">
     <div class="title">
       <h2>Contact Us</h2>
     </div>
     <div class="contact-content">
-      <form action="contact_form.php" method="post">
+      <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" value="{{ form.name.value }}" required>
+        {% if form.name.errors %}
+          <p class="error">{{ form.name.errors }}</p>
+        {% endif %}
         
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" value="{{ form.email.value }}" required>
+        {% if form.email.errors %}
+          <p class="error">{{ form.email.errors }}</p>
+        {% endif %}
         
         <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="10" required></textarea>
+        <textarea id="message" name="message" rows="10" required>{{ form.message.value }}</textarea>
+        {% if form.message.errors %}
+          <p class="error">{{ form.message.errors }}</p>
+        {% endif %}
         
         <input type="submit" value="Submit">
       </form>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
+
     <div class="end">
       <p>&copy; 2024 E-Learning. All rights reserved.</p>
     </div>
-  </footer>
 
-  <script src="script.js"></script>
+    
+  <script src="{% static 'scripts/script.js' %}"></script>
 </body>
 
 </html>

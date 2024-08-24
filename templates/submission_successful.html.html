@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submission Successful - E-Learning Website</title>
+  <link rel="stylesheet" href="{% static 'styles/style1.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="header">
+    <nav>
+      <div class="logo">
+        <img style="height: 62px; width: 90px;" src="{% static 'images/logo1.jpg' %}" alt="logo">
+        <span style="color: #bb2b2b;">E-</span><span style="color: #bb2b2b;">Learning</span>
+      </div>
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+      </ul>
+      <div class="menu">
+        <li>
+          <a href="#"><i class="fa fa-bars"></i></a>
+        </li>
+      </div>
+    </nav>
+  </div>
+  
+  <section class="main-section">
+    <div class="title">
+      <h2>Submission Successful</h2>
+    </div>
+    <div class="submission-content">
+      <p>Thank you for your submission. Your form has been received successfully.</p>
+      <a href="{% url 'index' %}" class="button">Go to Home Page</a>
+    </div>
+  </section>
+  
+  <script src="{% static 'scripts/script.js' %}"></script>
+</body>
+
+</html>
