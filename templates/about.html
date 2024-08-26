@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About - Elearning Website</title>
-  <link rel="stylesheet" href="styles/style1.css" />
+  <link rel="stylesheet" href="{% static 'styles/style1.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
@@ -13,15 +15,14 @@
   <div class="header">
     <nav>
       <div class="logo">
-        <img style="height: 62px; width: 90px;" src="images/logo1.jpg" alt="logo">
+        <img style="height: 62px; width: 90px;" src="{% static 'images/logo1.jpg' %}" alt="logo">
         E- <span>Learning</span>
       </div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="course.html">Courses</a></li>
-        <li><a href="teacher.html">Our Teachers</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'course' %}">Courses</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
       </ul>
       <div class="menu">
         <li>
@@ -36,7 +37,7 @@
       <h2>About Us</h2>
     </div>
     <div class="main">
-      <img style="height: 250px;" src="images/lectures.jpg" alt="About Us Image">
+      <img src="{% static 'images/about.png' %}" alt="About Us Image" style="width: 50%; height: auto;">
       <div class="about-text">
         <h2>We Are E-Learning</h2>
         <h5>Innovative Learning Platform</h5>
