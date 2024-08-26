@@ -9,6 +9,66 @@
   <title>About - Elearning Website</title>
   <link rel="stylesheet" href="{% static 'styles/style1.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .col-md-3 {
+      flex: 1 1 calc(25% - 20px); /* Adjust width for 4 columns */
+      margin: 10px;
+      max-width: calc(25% - 20px); /* Adjust width for space between cards */
+    }
+
+    .card {
+      background-color: #f4f4f4;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 200px; 
+      object-fit: contain; /* Ensuring that the whole image is visible */
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-text {
+      margin: 0;
+      color: #555;
+      text-decoration: none; 
+      text-align: center; 
+    }
+
+    .title-section {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .title-section h2 {
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    .title-section p {
+      font-size: 1.1em;
+      color: #666;
+      max-width: 800px;
+      margin: 10px auto;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,26 +93,95 @@
   </div>
 
   <section class="main-section">
-    <div class="title">
-      <h2>About Us</h2>
-    </div>
-    <div class="main">
-      <img src="{% static 'images/about.png' %}" alt="About Us Image" style="width: 50%; height: auto;">
-      <div class="about-text">
-        <h2>We Are E-Learning</h2>
-        <h5>Innovative Learning Platform</h5>
-        <p>In the realm where knowledge flows, through digital paths, where wisdom grows, we bridge the gap, from near to far, a world of learning whereever you are. With each new course, a door unlocks, to curious minds, like ticking clocks, together we journey, explore and findthe endless wonders of the human mind. take your vitrual learning space and build your bright future.</p>
+    <div class="row">
+      <!-- Card 1 -->
+      <div class="col-md-3">
+        <a href="#">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/darly.jpg' %}" alt="darly">
+            <div class="card-body">
+              <p class="card-text">Ejoh Daryl</p>
+            </div>
+          </div>
+        </a>
       </div>
+      <!-- Card 2 -->
+      <div class="col-md-3">
+        <a href="#">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/ateh.jpg' %}" alt="ateh">
+            <div class="card-body">
+              <p class="card-text">Ateh Damaris</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-3">
+        <a href="#">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/ben.jpg' %}" alt="ben">
+            <div class="card-body">
+              <p class="card-text">Kihdze Bernard </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 4 -->
+      <div class="col-md-3">
+        <a href="#">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/bryan.jpg' %}" alt="bryan">
+            <div class="card-body">
+              <p class="card-text">Ndonkou Lakoudjeu Bryan</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 5 -->
+      <div class="col-md-3">
+        <a href="#">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/ndi.jpg' %}" alt="ndi">
+            <div class="card-body">
+              <p class="card-text">Description for Image 5.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 6 -->
+      <div class="col-md-3">
+        <a href="#">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/image6.jpg' %}" alt="Image 6">
+            <div class="card-body">
+              <p class="card-text">Description for Image 6.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Card 7 -->
+      <div class="col-md-3">
+        <a href="#">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/image7.jpg' %}" alt="Image 7">
+            <div class="card-body">
+              <p class="card-text">Description for Image 7.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    
     </div>
   </section>
 
+  <section class="title-section">
+    <h2>E - Learning</h2>
+    <p>Education is the key to unlocking the world, a passport to freedom. It empowers individuals with the knowledge and skills necessary to navigate and transform the world. Through continuous learning, we not only enhance our abilities but also open doors to new opportunities and innovative solutions to global challenges.</p>
+  </section>
+
   <footer>
-    <div class="social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
+    <div class="social"></div>
     <div class="end">
       <p>&copy; 2024 E-Learning. All rights reserved.</p>
     </div>
