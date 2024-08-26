@@ -4,8 +4,10 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+
 # from .forms import ProfileUpdateForm, UserUpdateForm
-from dashboard import views
+# from dashboard import views
 
 # Create your views here.
 def index(request):
@@ -65,12 +67,23 @@ def register(request):
         if password == confirm_pass:
             if User.objects.filter(email=email).exists():
                 messages.info(request, 'Email already used')
-                return redirect('register')
+                return redirect('signup')
             elif User.objects.filter(username=username).exists():
                 messages.info(request, 'User already exists')
-                return redirect('register')
+                return redirect('signup')
             else:
-                user = User.objects.create_user(username=username, email=email, password=password)
+                user = User.objects.create_user(username=username, 
+                                                email=email, 
+                                                password=password)
+                send_mail(
+                    subject='Welcome to Eduflecta',
+                    message='''Thank you for trusting us Eduflectra. 
+                    Your success is our priority. We hope you learn a lot 
+                    our courses and that they will suit your needs.''',
+                    from_email=None,
+                    recipient_list=[email],
+                    fail_silently=False
+                )
                 user.save()
                 return redirect('dashboard')
         else:
