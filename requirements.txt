@@ -1,0 +1,7 @@
+django
+django-crispy-forms
+crispy
+django-bootstrap
+django-bootstrap4
+youtube-search-python
+selenium
