@@ -1,5 +1,9 @@
+from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from . import views
+# from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -8,8 +12,11 @@ urlpatterns = [
     path('index', views.index, name='index'),
     path('signup', views.register, name='signup'),
     path('login', views.login, name='login'),
-    path('dashboard', views.dashboard, name='dashboard'),
+    # path('dashboard', views.dashboard, name='dashboard'),
+    path('logout', views.log_out, name='logout'),
     path('course/', views.course, name='course'), 
+    path('teacher/', views.teacher, name='teacher'),
+    path('profile', views.profile, name='profile'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact_view, name='contact'),
     path('submission-successful/', views.submission_successful_view, name='submission_successful'),

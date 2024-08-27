@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .course-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .course-item {
+            background-color: #fff;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .course-item a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.2em;
+        }
+        .course-item p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Courses</h1>
+    <ul class="course-list">
+        {% for course in courses %}
+        <li class="course-item">
+            <a href="{% url 'course_detail' course.id %}">{{ course.title }}</a>
+            <p><strong>Description:</strong> {{ course.description }}</p>
+            <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+            <p><strong>Duration:</strong> {{ course.duration }} hours</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

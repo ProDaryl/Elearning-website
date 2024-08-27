@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="profile-page">
+    <div class="profile-header">
+        <img src="{% static 'images/default-profile-pic.png' %}" alt="Profile-Pic" class="profile-picture">
+        <div class="profile-info">
+            <h1 class="profile-name">{{ request.user.username }}</h1>
+            <p class="profile-bio"> </p>
+        </div>
+    </div>
+
+    <div class="profile-content">
+        <h2>About Me</h2>
+        <p>Student at Eduflectra</p>
+
+        <h2>Recent Activities</h2>
+        <ul class="activity-list">
+            <li>Joined a new project on GitHub</li>
+            <li>Published a new blog post: "Introduction to Django"</li>
+            <li>Started following Jane Smith</li>
+        </ul>
+
+        <!-- <a href="{% url 'edit_profile' %}"><button class="edit-profile-btn">Edit Profile</button></a> -->
+    </div>
+</div>
+
+
+{% endblock %}
