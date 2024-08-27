@@ -8,6 +8,8 @@ venv
 
 .venv
 
-dashboard/migrations/*
+.env
+
+dashboard/migratons/*
 
 *.pyc
