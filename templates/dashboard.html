@@ -49,8 +49,8 @@
               <li><a href="#">Professor Mark</a></li>
             </ul>
           </li>
-          <li><a href="about">About</a></li>
-          <li><a href="contact">Contact</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
         <div class="search-bar">
           <input type="text" placeholder="Search for courses" />
@@ -159,12 +159,7 @@
     </section>
 
     <footer>
-      <div class="social">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
+      
       <div class="end">
         <p>&copy; 2024 E-Learning. All rights reserved.</p>
       </div>
