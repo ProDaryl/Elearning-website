@@ -17,9 +17,10 @@
     margin-top: 10px; 
   }
 </style>
+z 
 
 <section class="container text-center">
-  <h3>Welcome</h3>
+  <h3>Welcome {{request.user.username|title}}</h3>
   <h4 style="text-align: center; margin-bottom: 30px;">Recommended Courses</h4>
 
   <!-- Recommended Courses Section -->
@@ -91,7 +92,11 @@
     </div>
   </div>
 
-  <hr> <br>
+  <hr>
+  
+  <br><br><br>
+
+  <hr>
 
   <!-- Card Section 1 -->
   <div class="row">
@@ -119,7 +124,7 @@
       </a>
     </div>
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'youtube' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/youtube.jpg' %}" alt="YouTube image">
           <div class="card-body">
@@ -130,7 +135,7 @@
       </a>
     </div>
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'tasks' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/todo.jpg' %}" alt="To-Do image">
           <div class="card-body">

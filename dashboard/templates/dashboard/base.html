@@ -96,7 +96,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'profile' %}">
                     <img src="{% static 'images/default-profile-pic.png' %}" alt="Profile-Pic" width="20" height="20">
-                    Profile
+                    {{ request.user.username }}
                 </a>
             </li>
             
@@ -109,7 +109,7 @@
       <!-- Centered Search Bar -->
       <div class="d-flex justify-content-center mt-3">
         <form class="d-flex w-50" action="#" method="get">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search-area">
           <button class="btn btn-dark-custom" type="submit">Search</button>
         </form>
       </div>

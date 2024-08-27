@@ -65,10 +65,10 @@ def register(request):
         if password == confirm_pass:
             if User.objects.filter(email=email).exists():
                 messages.info(request, 'Email already used')
-                return redirect('register')
+                return redirect('signup')
             elif User.objects.filter(username=username).exists():
                 messages.info(request, 'User already exists')
-                return redirect('register')
+                return redirect('signup')
             else:
                 user = User.objects.create_user(username=username, email=email, password=password)
                 user.save()
@@ -81,6 +81,15 @@ def register(request):
             
 # def dashboard(request):
 #     return render(request, 'dashboard.html')
+
+def course(request):
+    return render(request, 'course.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def contact(request):
+    return render(request, 'contact.html')
 
 @login_required
 def profile(request):
