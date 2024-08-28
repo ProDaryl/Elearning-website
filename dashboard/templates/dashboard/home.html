@@ -17,7 +17,8 @@
     margin-top: 10px; 
   }
 </style>
-z 
+
+
 
 <section class="container text-center">
   <h3>Welcome {{request.user.username|title}}</h3>
@@ -35,6 +36,7 @@ z
         </div>
       </div>
     </div>
+
     <div class="col-md-4">
       <div class="card">
         <img src="{% static 'images/modern react.jpg' %}" class="card-img-top" alt="Course 2">
@@ -45,6 +47,7 @@ z
         </div>
       </div>
     </div>
+    
     <div class="col-md-4">
       <div class="card">
         <img src="{% static 'images/Django.jpeg' %}" class="card-img-top" alt="Course 3">
@@ -70,6 +73,7 @@ z
         </div>
       </div>
     </div>
+
     <div class="col-md-4">
       <div class="card">
         <img src="{% static 'images/software.jpeg' %}" class="card-img-top" alt="Course 5">
@@ -80,6 +84,7 @@ z
         </div>
       </div>
     </div>
+
     <div class="col-md-4">
       <div class="card">
         <img src="{% static 'images/network.jpeg' %}" class="card-img-top" alt="Course 6">
@@ -98,7 +103,9 @@ z
 
   <hr>
 
+  
   <!-- Card Section 1 -->
+
   <div class="row">
     <div class="col-md-3">
       <a href="{% url 'notes' %}">
@@ -123,6 +130,7 @@ z
         </div>
       </a>
     </div>
+
     <div class="col-md-3">
       <a href="{% url 'youtube' %}">
         <div class="card">
@@ -134,6 +142,7 @@ z
         </div>
       </a>
     </div>
+
     <div class="col-md-3">
       <a href="{% url 'tasks' %}">
         <div class="card">
@@ -150,6 +159,7 @@ z
   <br><br><br>
 
   <!-- Card Section 2 -->
+   
   <div class="row">
     <div class="col-md-3">
       <a href="#">
@@ -176,6 +186,7 @@ z
         </div>
       </a>
     </div>
+
     <div class="col-md-3">
       <a href="#">
         <div class="card">
