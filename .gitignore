@@ -2,14 +2,14 @@
 
 */__pycache__
 
+.venv
+
 db.sqlite3
 
 venv
 
 .venv
 
-*.pyc
-
-dashboard/migratons/*
+dashboard/migrations/*
 
 *.pyc

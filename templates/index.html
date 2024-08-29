@@ -14,7 +14,7 @@
   
   <!-- Embedded CSS for Center-Aligning the Navigation Menu -->
   <style>
-    /* Center-align the navigation menu items */
+    
     nav ul {
       list-style: none;
       padding: 0;
@@ -25,48 +25,60 @@
     }
 
     nav ul li {
-      margin: 0 15px; /* Adjust spacing between items */
+      margin: 0 20px; 
     }
 
     nav ul li a {
       text-decoration: none;
-      color: #333; /* Adjust color as needed */
-      font-weight: bold; /* Optional: make the text bold */
+      color: #f2f2f2; 
+      font-weight: bold; 
+      font-size: 18px; 
     }
 
-    /* Adjust the logo positioning to be centered with the menu */
+
     nav .logo {
       text-align: left;
       flex: 1;
+    }
+
+    nav .logo img {
+      height: 75px; 
+      width: 100px;
     }
 
     nav {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: white;
+      background-color: #333; 
+      padding: 15px 25px; 
+    }
+
+    /* Styling for the logo text */
+    .logo span {
+      font-weight: bold;
+      color: #f2f2f2; 
+      font-size: 22px; 
     }
   </style>
 </head>
 
-<body style="background-color: white;">
+<body style="background-color: #333;">
   <nav>
     <div class="logo">
-      <img style="height: 62px; width: 85px;" src="{% static 'images/logo1.jpg' %}" alt="logo">
-      <span style="font-weight: bold; color: #333;"></span>
-      <span style="color: #bb2b2b;">E-</span><span style="color: #bb2b2b;">Learning</span>
+      <img src="{% static 'images/logo1.jpg' %}" alt="logo">
+      <span>E-</span><span>Learning</span>
     </div>
     <ul>
       <li><a href="{% url 'index' %}">Home</a></li>
       <li><a href="{% url 'course' %}">Courses</a></li>
-      <li><a href="{% url 'teacher' %}">Our Teachers</a></li>
       <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="{% url 'contact' %}">Contact</a></li>
       <li><a href="{% url 'login' %}">Login</a></li>
       <li><a href="{% url 'signup' %}">Sign Up</a></li>
-    </ul>
+  </ul>
 
-    </div>
+
   </nav>
 
   <!-- This section contains the various services and about -->
@@ -76,7 +88,7 @@
       <div class="about-text">
         <h2>Our Lecturers</h2>
         <h5>Flexible Learning <span>& Certified Instructors</span></h5>
-        <p>Step into a world, where knowledge thrives, A place where curious minds can rise. Learn at your own space, your own time. 
+        <p>Step into a world, where knowledge thrives, A place where curious minds can rise. Learn at your own pace, your own time. 
           Discover new skills, let your passion climb. Here every lesson's a step you take, Toward a brighter future in the path you
           make.
           Welcome Learner, your journey begins take knowledge in hand.</p>
@@ -179,22 +191,7 @@
         More about our courses - please click on the link below to
         enroll in one of our courses
       </p>
-      <div class="social">
-        <a href="#">
-          <i class="fa-brands fa-facebook"></i>
-        </a>
-        <a href="#">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-        <a href="#">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="#">
-          <i class="fa-brands fa-linkedin"></i></a>
-        <a href="#">
-          <i class="fa-brands fa-github"></i>
-        </a>
-      </div>
+    
       <p class="end">CopyRight By Group6</p>
     </footer>
   

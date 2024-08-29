@@ -13,11 +13,12 @@ urlpatterns = [
     path('signup', views.register, name='signup'),
     path('login', views.login, name='login'),
     # path('dashboard', views.dashboard, name='dashboard'),
-    path('forms', views.role_form, name='forms'),
     path('logout', views.log_out, name='logout'),
+    path('course/', views.course, name='course'), 
+    # path('teacher/', views.teacher, name='teacher'),
     path('profile', views.profile, name='profile'),
-    path('profile/edit', views.edit_profile, name='edit_profile')
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
+    path('select_role', views.select_role, name='select_role'),
+    path('forms', views.role_form, name='forms')
 ]
-
-# if settings.DEBUG:
-#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
