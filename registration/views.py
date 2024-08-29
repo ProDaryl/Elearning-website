@@ -4,8 +4,10 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+
 # from .forms import ProfileUpdateForm, UserUpdateForm
-from dashboard import views
+# from dashboard import views
 
 # Create your views here.
 def index(request):
@@ -19,7 +21,7 @@ def log_out(request):
 def select_role(request):
     return render(request, 'select_role.html')
 
-
+# Dynamic form view
 def role_form(request):
     role = request.GET.get('role')
 
@@ -70,7 +72,18 @@ def register(request):
                 messages.info(request, 'User already exists')
                 return redirect('signup')
             else:
-                user = User.objects.create_user(username=username, email=email, password=password)
+                user = User.objects.create_user(username=username, 
+                                                email=email, 
+                                                password=password)
+                send_mail(
+                    subject='Welcome to Eduflecta',
+                    message='''Thank you for trusting us Eduflectra. 
+                    Your success is our priority. We hope you learn a lot 
+                    our courses and that they will suit your needs.''',
+                    from_email=None,
+                    recipient_list=[email],
+                    fail_silently=False
+                )
                 user.save()
                 return redirect('dashboard')
         else:
@@ -89,28 +102,15 @@ def profile(request):
 def course(request):
     return render(request, 'course.html')
 
-
 def about(request):
-
     return render(request, 'about.html')
 
-def contact_view(request):  # Ensure this function name matches the one in urls.py
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
+def contact(request):
+    return render(request, 'contact.html')
 
-        if name and email and message:
-            # Process the form data (e.g., send an email)
-            return redirect('submission_successful')
-        else:
-            error_message = "Please fill out all fields correctly."
-            return render(request, 'contact.html', {'error_message': error_message})
-    else:
-        return render(request, 'contact.html')
-
-def submission_successful_view(request):
-    return render(request, 'submission_successful.html')
+@login_required
+def profile(request):
+    return render(request, 'profile.html')
 
 def login(request):
     if request.method == 'POST':
@@ -126,6 +126,4 @@ def login(request):
             messages.info(request, 'Invalid Credentials')
             return redirect('login')
     else:
-  
-        return render(request, 'login.html')
-
+     return render(request, 'login.html')
