@@ -10,7 +10,6 @@ from django.core.mail import send_mail
 # from dashboard import views
 
 # Create your views here.
-# Create your views here.
 def index(request):
     return render(request, 'index.html')
 
