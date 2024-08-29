@@ -1,30 +1,34 @@
 from django.shortcuts import render, redirect
-from chat.models import Room, Message
+from .models import Room, Message
 from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 def home(request):
-    return render(request, 'chat.html')
+    return render(request, 'chatroom/chat.html')
 
 def room(request, room):
     username = request.GET.get('username')
     room_details = Room.objects.get(name=room)
-    return render(request, 'room.html', {
+    return render(request, 'chatroom/room.html', {
         'username': username,
         'room': room,
         'room_details': room_details
     })
 
 def checkview(request):
-    room = request.POST['room_name']
-    username = request.POST['username']
+    room_name = request.POST.get('room_name', '')
+    username = request.POST.get('username', '')
 
-    if Room.objects.filter(name=room).exists():
-        return redirect('/'+room+'/?username='+username)
+    # Check if the room exists
+    if Room.objects.filter(name=room_name).exists():
+        # Redirect to the existing room with the username as a query parameter
+        return redirect(f'chat/{room_name}/?username={username}')
     else:
-        new_room = Room.objects.create(name=room)
+        # Create a new room if it does not exist
+        new_room = Room.objects.create(name=room_name)
         new_room.save()
-        return redirect('/'+room+'/?username='+username)
+        # Redirect to the newly created room with the username as a query parameter
+        return redirect(f'chat/{room_name}/?username={username}')
 
 def send(request):
     message = request.POST['message']

@@ -201,9 +201,9 @@
    
    
     <div class="col-md-3">
-      <a href="chatroom/templates/chatroom/chat.html">
+      <a href="{% url 'room' %}">
         <div class="card">
-          <img class="card-img-top" src="static/images/chatting.jpg" alt="Conversion image">
+          <img class="card-img-top" src="{% static 'images/chatting.jpg' %}" alt="Conversion image">
           <div class="card-body">
             <h5 class="card-title">chat group</h5>
           </div>
