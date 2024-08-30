@@ -6,29 +6,33 @@ from django.http import HttpResponse, JsonResponse
 def home(request):
     return render(request, 'chatroom/chat.html')
 
+from django.shortcuts import render, redirect
+from .models import Room
+
 def room(request, room):
     username = request.GET.get('username')
     room_details = Room.objects.get(name=room)
-    return render(request, 'chatroom/room.html', {
+    return render(request, 'chatroom/group.html', {
         'username': username,
         'room': room,
         'room_details': room_details
     })
 
 def checkview(request):
-    room_name = request.POST.get('room_name', '')
-    username = request.POST.get('username', '')
+    if request.method == 'POST':
+        room_name = request.POST['room_name']
+        username = request.POST['username']
 
-    # Check if the room exists
-    if Room.objects.filter(name=room_name).exists():
-        # Redirect to the existing room with the username as a query parameter
-        return redirect(f'chat/{room_name}/?username={username}')
+        if Room.objects.filter(name=room_name).exists():
+            return redirect(f'room/{room_name}/?username={username}')
+        else:
+            new_room = Room.objects.create(name=room)
+            new_room.save()
+            return redirect(f'room/{room_name}/?username={username}')
     else:
-        # Create a new room if it does not exist
-        new_room = Room.objects.create(name=room_name)
-        new_room.save()
-        # Redirect to the newly created room with the username as a query parameter
-        return redirect(f'chat/{room_name}/?username={username}')
+        # Handle the case where the method is not POST
+        return redirect('chat_index')  # Redirect or handle accordingly
+
 
 def send(request):
     message = request.POST['message']
@@ -40,7 +44,10 @@ def send(request):
     return HttpResponse('Message sent successfully')
 
 def getMessages(request, room):
-    room_details = Room.objects.get(name=room)
+    try:
+        room_details = Room.objects.get(name=room)
+    except Room.DoesNotExist:
+        raise Http404("Room not found")
 
     messages = Message.objects.filter(room=room_details.id)
-    return JsonResponse({"messages":list(messages.values())})
+    return JsonResponse({"messages": list(messages.values())})

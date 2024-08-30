@@ -73,7 +73,7 @@ $(document).ready(function(){
 setInterval(function(){
     $.ajax({
         type: 'GET',
-        url : "/getMessages/{{room}}/",
+        url : "/chat/getMessages/{{ room }}",
         success: function(response){
             console.log(response);
             $("#display").empty();
@@ -84,7 +84,7 @@ setInterval(function(){
             }
         },
         error: function(response){
-            alert('An error occured')
+          alert('An error occured')
         }
     });
 },1000);
@@ -144,7 +144,7 @@ setInterval(function(){
 
     $.ajax({
       type:'POST',
-      url:'/send',
+      url:'/chat/send',
       data:{
           username:$('#username').val(),
           room_id:$('#room_id').val(),
