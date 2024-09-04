@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from .models import Room, Message
 from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
+from .models import Room
+
 
 # Create your views here.
 def home(request):
+    rooms = Room.objects.filter()
     return render(request, 'chatroom/chat.html')
-
-from django.shortcuts import render, redirect
-from .models import Room
 
 def room(request, room):
     username = request.GET.get('username')
@@ -26,7 +27,7 @@ def checkview(request):
         if Room.objects.filter(name=room_name).exists():
             return redirect(f'room/{room_name}/?username={username}')
         else:
-            new_room = Room.objects.create(name=room)
+            new_room = Room.objects.create(name=room_name)
             new_room.save()
             return redirect(f'room/{room_name}/?username={username}')
     else:
