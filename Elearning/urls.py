@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('registration.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('courses/', include('course_enlistment.urls')),
+    path('api/', include('course_enrollment.urls')),
 ]

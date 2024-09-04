@@ -79,6 +79,8 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('order', models.PositiveIntegerField()),
+                ('content_type', models.CharField(choices=[('pdf', 'PDF'), ('video', 'Video')], max_length=10)),
+                ('file', models.FileField(upload_to='course_content/')),
                 ('module', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='contents', to='course_enlistment.module')),
             ],
         ),

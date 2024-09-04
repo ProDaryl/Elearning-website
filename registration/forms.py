@@ -13,7 +13,6 @@ from django.contrib.auth.models import User
 #     class Meta:
 #         model = Profile
 #         fields = ['profile_picture']
-#         fields = ['profile_picture']
 # forms.py
 
 from django import forms
