@@ -12,5 +12,6 @@ urlpatterns = [
     # URL pattern for tracking progress
     path('track/<int:content_id>/', views.track_progress, name='track_progress'),
 
-    path('search/', views.search_courses, name='search_courses'),
+    # path('search/', views.search_courses, name='search_courses'),
+    
 ]

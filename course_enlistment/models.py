@@ -96,13 +96,13 @@ class CourseReview(models.Model):
     def __str__(self):
         return f'{self.user.username} - {self.course.title} - {self.rating}'
 
-class Enrollment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    enrolled_at = models.DateTimeField(auto_now_add=True)
-    progress = models.FloatField(default=0.0)
+# class Enrollment(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+#     enrolled_at = models.DateTimeField(auto_now_add=True)
+#     progress = models.FloatField(default=0.0)
 
-    def __str__(self):
-        return f'{self.user.username} - {self.course.title} - {self.progress}%'
+#     def __str__(self):
+#         return f'{self.user.username} - {self.course.title} - {self.progress}%'
     
 
