@@ -1,0 +1,28 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<style>
+    .header-bar {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+        background: linear-gradient(90deg, #90eecd 0%, #6febd4 43%, #6feba5 100%);
+    }
+</style>
+
+<div class="container mt-5" style="max-width: 500px;">
+
+    <div class="header-bar">
+        <a href="{% url 'tasks' %}" class="text-decoration-none text-primary mb-4 d-inline-block">&#8592; Back</a>
+    </div>
+    
+    <form method="post" action="{% url 'task_delete' task.id %}" class="text-center p-4 border rounded bg-light">
+        {% csrf_token %}
+        <p class="mb-4" style="font-size: 18px;">Are you sure you want to delete the task: <strong>{{ task }}</strong>?</p>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div>
+{% endblock %}

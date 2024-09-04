@@ -1,0 +1,79 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+
+<style>
+    .container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    }
+
+    h3 {
+        font-family: Arial, sans-serif;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: inline-block;
+        text-align: left;
+        width: 100%;
+
+    }
+
+    form input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+        background-color: #218838;
+    }
+
+    .header-bar {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+        background: linear-gradient(90deg, #90eecd 0%, #6febd4 43%, #6feba5 100%);
+    }
+
+</style>
+
+<div class="container">
+    <div class="header-bar">
+        <a href="{% url 'tasks' %}">&#8592, Back</a>
+    </div>
+
+    <h3>Task Form</h3>
+    
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-left: 50px;">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+        {{ form.non_field_errors }}
+        {% for field in form %}
+            {% if field.name != 'title' %}
+                <div>
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <input type="submit" value="Submit" style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px;">
+    </form>
+</div>
+
+{% endblock %}
