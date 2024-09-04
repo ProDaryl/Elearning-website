@@ -1,12 +1,11 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About - Elearning Website</title>
+  <title>About - E-Learning Website</title>
   <link rel="stylesheet" href="{% static 'styles/style1.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
   <style>
@@ -18,9 +17,9 @@
     }
 
     .col-md-3 {
-      flex: 1 1 calc(25% - 20px); /* Adjust width for 4 columns */
+      flex: 1 1 calc(25% - 20px); 
       margin: 10px;
-      max-width: calc(25% - 20px); /* Adjust width for space between cards */
+      max-width: calc(25% - 20px); 
     }
 
     .card {
@@ -37,8 +36,8 @@
 
     .card-img-top {
       width: 100%;
-      height: 200px; 
-      object-fit: contain; /* Ensuring that the whole image is visible */
+      height: 200px;
+      object-fit: contain;
     }
 
     .card-body {
@@ -48,8 +47,11 @@
     .card-text {
       margin: 0;
       color: #555;
+      text-align: center;
+      font-weight: bold;
+    
       text-decoration: none; 
-      text-align: center; 
+  
     }
 
     .title-section {
@@ -60,6 +62,7 @@
     .title-section h2 {
       font-size: 2.5em;
       color: #333;
+      font-weight: bold; 
     }
 
     .title-section p {
@@ -67,6 +70,14 @@
       color: #666;
       max-width: 800px;
       margin: 10px auto;
+    }
+
+    .about-title {
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold; 
+      margin-top: 20px;
+      color: #333;
     }
   </style>
 </head>
@@ -76,11 +87,11 @@
     <nav>
       <div class="logo">
         <img style="height: 62px; width: 90px;" src="{% static 'images/logo1.jpg' %}" alt="logo">
-        E- <span>Learning</span>
+        E-<span>Learning</span>
       </div>
       <ul>
         <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="{% url 'course' %}">Courses</a></li>
+        
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
       </ul>
@@ -92,6 +103,8 @@
     </nav>
   </div>
 
+  <div class="about-title">About Us</div>
+
   <section class="main-section">
     <div class="row">
       <!-- Card 1 -->
@@ -100,7 +113,7 @@
           <div class="card">
             <img class="card-img-top" src="{% static 'images/darly.jpg' %}" alt="darly">
             <div class="card-body">
-              <p class="card-text">Ejoh Daryl</p>
+              <p class="card-text">Ejoh Daryl. The Project Manager and Deployment</p>
             </div>
           </div>
         </a>
@@ -111,7 +124,7 @@
           <div class="card">
             <img class="card-img-top" src="{% static 'images/ateh.jpg' %}" alt="ateh">
             <div class="card-body">
-              <p class="card-text">Ateh Damaris</p>
+              <p class="card-text">Ateh Damaris. The Frontend Developer</p>
             </div>
           </div>
         </a>
@@ -122,7 +135,7 @@
           <div class="card">
             <img class="card-img-top" src="{% static 'images/ben.jpg' %}" alt="ben">
             <div class="card-body">
-              <p class="card-text">Kihdze Bernard </p>
+              <p class="card-text">Kihdze Bernard. The Backend Developer</p>
             </div>
           </div>
         </a>
@@ -133,7 +146,7 @@
           <div class="card">
             <img class="card-img-top" src="{% static 'images/bryan.jpg' %}" alt="bryan">
             <div class="card-body">
-              <p class="card-text">Ndonkou Lakoudjeu Bryan</p>
+              <p class="card-text">Ndonkou Lakoudjeu Bryan. The Documentation</p>
             </div>
           </div>
         </a>
@@ -144,7 +157,7 @@
           <div class="card">
             <img class="card-img-top" src="{% static 'images/ndi.jpg' %}" alt="ndi">
             <div class="card-body">
-              <p class="card-text">Description for Image 5.</p>
+              <p class="card-text">Ndi Che Atia. The Multi-media developer</p>
             </div>
           </div>
         </a>
@@ -153,9 +166,9 @@
       <div class="col-md-3">
         <a href="#">
           <div class="card">
-            <img class="card-img-top" src="{% static 'images/image6.jpg' %}" alt="Image 6">
+            <img class="card-img-top" src="{% static 'images/ankiambom.jpg' %}" alt="Image 6">
             <div class="card-body">
-              <p class="card-text">Description for Image 6.</p>
+              <p class="card-text">Ankiambom Richcal Chai. The Advisor</p>
             </div>
           </div>
         </a>
@@ -164,19 +177,19 @@
       <div class="col-md-3">
         <a href="#">
           <div class="card">
-            <img class="card-img-top" src="{% static 'images/image7.jpg' %}" alt="Image 7">
+            <img class="card-img-top" src="{% static 'images/allan.jpg' %}" alt="Image 7">
             <div class="card-body">
-              <p class="card-text">Description for Image 7.</p>
+              <p class="card-text">Momye Poutong Allan. The Vice-leader, Light and Dark mode</p>
             </div>
           </div>
         </a>
       </div>
-    
+  
     </div>
   </section>
 
   <section class="title-section">
-    <h2>E - Learning</h2>
+    <h2>E-Learning</h2>
     <p>Education is the key to unlocking the world, a passport to freedom. It empowers individuals with the knowledge and skills necessary to navigate and transform the world. Through continuous learning, we not only enhance our abilities but also open doors to new opportunities and innovative solutions to global challenges.</p>
   </section>
 
@@ -187,7 +200,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="{% static 'scripts/script.js' %}"></script>
 </body>
 
 </html>
