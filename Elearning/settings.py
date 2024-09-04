@@ -70,6 +70,9 @@ INSTALLED_APPS = [
     'dashboard',
     'crispy_forms',
     'chatroom',
+    'course_enlistment',
+    'course_enrollment',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
