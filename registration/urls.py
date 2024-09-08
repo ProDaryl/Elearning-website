@@ -19,6 +19,6 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
-    path('select_role', views.select_role, name='select_role'),
-    path('forms', views.role_form, name='forms')
+    # path('select_role', views.select_role, name='select_role'),
+    # path('forms', views.role_form, name='forms')
 ]
