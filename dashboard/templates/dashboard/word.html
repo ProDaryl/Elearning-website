@@ -1,0 +1,27 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dictionary.css' %}">
+
+<form action="word">
+    <div class="search">
+        <input type="text" name="word-search" placeholder="Search for a word" class="searchTerm">
+        <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+</form>
+
+
+<h3>Meaning: {{meaning}} </h3>
+<h3>Synonyms: {% for synonym in synonyms %}
+     {{synonym}} 
+    {% endfor %}
+</h3>
+<h3>Antonyms: {% for antonym in antonyms %}
+     {{antonym}} 
+    {% endfor %}
+</h3>
+
+{% endblock %}

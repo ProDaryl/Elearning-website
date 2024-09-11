@@ -1,4 +1,5 @@
 {% extends 'dashboard/base.html' %}
+{% load static %}
 
 {% block content %}
 <!DOCTYPE html>
@@ -66,20 +67,43 @@
         .course-item p strong {
             color: #212529;
         }
+
+        .card-text {
+            font-size: 12px; 
+            word-spacing: 0.1em;
+            line-height: 1.5; 
+            text-align: left;
+            margin-top: 10px; 
+        }
+
+        .col-md-4 {
+            margin-bottom: 2rem;
+        }
+
     </style>
 </head>
+<h1>Available Courses</h1>
 <body>
-    <h1>Available Courses</h1>
-    <div class="course-container">
-        {% for course in courses %}
-        <div class="course-item">
-            <a href="{% url 'course_detail' course.id %}">{{ course.title }}</a>
-            <p><strong>Description:</strong> {{ course.description }}</p>
-            <p><strong>Instructor:</strong> {{ course.instructor }}</p>
-            <p><strong>Duration:</strong> {{ course.duration }} hours</p>
-        </div>
-        {% endfor %}
-    </div>
+    <section class="container text-area">
+        <div class="row">
+            {% for course in courses %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ course.course_image.url }}" class="card-img-top" alt="{{ course.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course.title }}</h5>
+                        <p class="card-text">{{ course.description }}</p>
+                        <a href="{% url 'course_detail' course.id %}" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+        
+          <br>
+        
+    </section>
+    
 </body>
 </html>
 {% endblock %}

@@ -84,3 +84,23 @@ p a {
 p a:hover {
   text-decoration: underline;
 }
+
+.teacher-label {
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.teacher-checkbox {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.teacher-checkbox:checked {
+  accent-color: #ff6b6b; 
+}
+
