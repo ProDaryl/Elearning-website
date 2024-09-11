@@ -12,13 +12,8 @@ urlpatterns = [
     path('index', views.index, name='index'),
     path('signup', views.register, name='signup'),
     path('login', views.login, name='login'),
-<<<<<<< HEAD
-    path('dashboard', views.dashboard, name='dashboard'),
-    path('logout', views.login, name='logout'),
-=======
     # path('dashboard', views.dashboard, name='dashboard'),
     path('logout', views.log_out, name='logout'),
->>>>>>> master
     path('course/', views.course, name='course'), 
     # path('teacher/', views.teacher, name='teacher'),
     path('profile', views.profile, name='profile'),
