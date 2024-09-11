@@ -3,6 +3,7 @@ from  .forms import *
 from django.contrib import messages
 from django.views import generic
 from youtubesearchpython import VideosSearch
+from PyDictionary import PyDictionary
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView 
@@ -172,3 +173,23 @@ def youtube(request):
         form = DashboardForm()
     context = {'form':form}
     return render(request, 'dashboard/youtube.html',context)
+
+
+@login_required
+def dictionary(request):
+    return render(request, 'dashboard/dictionary.html')
+
+@login_required
+def word(request):
+    search = request.GET.get('word-search')
+    dictionary = PyDictionary()
+    meaning = dictionary.meaning(search)
+    synonyms = dictionary.synonym(search)
+    antonyms = dictionary.antonym(search)
+    context = {
+        'meaning': meaning['Noun'][0],
+        'synonyms': synonyms,
+        'antonyms': antonyms,
+    }
+    
+    return render(request, 'dashboard/word.html', context)

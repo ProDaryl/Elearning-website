@@ -7,3 +7,4 @@ django-environ
 selenium
 crispy
 django-rest-framework
+pydictionary

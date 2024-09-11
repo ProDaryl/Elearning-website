@@ -149,7 +149,7 @@
     <div class="col-md-3">
       <a href="#">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/books.jpg' %}" alt="Books image">
+          <img class="card-img-top" src="{% static 'images/books.jpg' %}" alt="Books image" loading="lazy">
           <div class="card-body">
             <h5 class="card-title">Books</h5>
             <p class="card-text">Browse books from a list of neatly organized book menu.</p>
@@ -161,9 +161,9 @@
    
    
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'dictionary' %}">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/dictionary.jpg' %}" alt="Dictionary image">
+          <img class="card-img-top" src="{% static 'images/dictionary.jpg' %}" alt="Dictionary image" loading="lazy">
           <div class="card-body">
             <h5 class="card-title">Dictionary</h5>
             <p class="card-text">A vocabulary from a book is troubling you? No problem, enter the word, and the meaning will be displayed almost instantaneously.</p>
@@ -174,7 +174,7 @@
     <div class="col-md-3">
       <a href="#">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/wiki.jpg' %}" alt="Wikipedia image">
+          <img class="card-img-top" src="{% static 'images/wiki.jpg' %}" alt="Wikipedia image" loading="lazy">
           <div class="card-body">
             <h5 class="card-title">Wikipedia</h5>
             <p class="card-text">Homework and assignments? Search Wikipedia to get fast results.</p>
@@ -187,7 +187,7 @@
     <div class="col-md-3">
       <a href="{% url 'chat_index' %}">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/chatting.jpg' %}" alt="Conversion image">
+          <img class="card-img-top" src="{% static 'images/chatting.jpg' %}" alt="Conversion image" loading="lazy">
           <div class="card-body">
             <h5 class="card-title">chat group</h5>
           </div>
