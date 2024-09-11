@@ -19,8 +19,10 @@
 </style>
 
 <section class="container text-center">
-  <h3>Welcome</h3>
-  <h4 style="text-align: center; margin-bottom: 30px;">Recommended Courses</h4>
+  <div class="text">
+    <h3>Welcome</h3>
+    <h4 style="text-align: center; margin-bottom: 30px;">Recommended Courses</h4>
+  </div>
 
   <!-- Recommended Courses Section -->
   <div class="row">
@@ -119,7 +121,7 @@
       </a>
     </div>
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'youtube' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/youtube.jpg' %}" alt="YouTube image">
           <div class="card-body">
@@ -149,7 +151,7 @@
     <div class="col-md-3">
       <a href="#">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/books.jpg' %}" alt="Books image">
+          <img class="card-img-top" src="{% static 'images/books.jpg' %}" alt="Books image" loading="lazy">
           <div class="card-body">
             <h5 class="card-title">Books</h5>
             <p class="card-text">Browse books from a list of neatly organized book menu.</p>
@@ -161,9 +163,9 @@
    
    
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'dictionary' %}">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/dictionary.jpg' %}" alt="Dictionary image">
+          <img class="card-img-top" src="{% static 'images/dictionary.jpg' %}" alt="Dictionary image" loading="lazy">
           <div class="card-body">
             <h5 class="card-title">Dictionary</h5>
             <p class="card-text">A vocabulary from a book is troubling you? No problem, enter the word, and the meaning will be displayed almost instantaneously.</p>
@@ -174,7 +176,7 @@
     <div class="col-md-3">
       <a href="#">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/wiki.jpg' %}" alt="Wikipedia image">
+          <img class="card-img-top" src="{% static 'images/wiki.jpg' %}" alt="Wikipedia image" loading="lazy">
           <div class="card-body">
             <h5 class="card-title">Wikipedia</h5>
             <p class="card-text">Homework and assignments? Search Wikipedia to get fast results.</p>
@@ -185,17 +187,18 @@
    
    
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'chat_index' %}">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/conversion.jpg' %}" alt="Conversion image">
+          <img class="card-img-top" src="{% static 'images/chatting.jpg' %}" alt="Conversion image" loading="lazy">
           <div class="card-body">
-            <h5 class="card-title">Conversion</h5>
-            <p class="card-text">Check out the conversion table, which helps you convert measurements to more familiar ones of your choice.</p>
+            <h5 class="card-title">chat group</h5>
           </div>
         </div>
       </a>
     </div>
   </div>
+
+
 
 
 </section>

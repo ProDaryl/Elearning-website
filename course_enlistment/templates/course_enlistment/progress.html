@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress for {{ content.module.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .content-details {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        .content-details p {
+            margin: 5px 0;
+        }
+        .content-details a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .status {
+            margin-top: 20px;
+        }
+        .status p {
+            font-size: 1.1em;
+            color: green;
+        }
+        .status form {
+            margin-top: 10px;
+        }
+        .status button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .status button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Progress for {{ content.module.title }}</h1>
+    <div class="content-details">
+        <p><strong>Content Type:</strong> {{ content.content_type }}</p>
+        <p><strong>Description:</strong> {{ content.description }}</p>
+        <p><strong>Instructor:</strong> {{ content.instructor }}</p>
+        <a href="{{ content.file.url }}">View Content</a>
+    </div>
+
+    <div class="status">
+        {% if progress.completed %}
+            <p>Status: Completed on {{ progress.completion_date }}</p>
+        {% else %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit">Mark as Completed</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

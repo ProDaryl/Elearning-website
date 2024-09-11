@@ -1,10 +1,61 @@
 from django.shortcuts import redirect, render
-from  . forms import *
+from  .forms import *
 from django.contrib import messages
 from django.views import generic
 from youtubesearchpython import VideosSearch
+from PyDictionary import PyDictionary
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.list import ListView 
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .models import Task
 # Create your views here.
+
+# @login_required 
+class TaskList(LoginRequiredMixin, ListView):
+    model = Task
+    context_object_name = 'tasks'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['tasks'] = context['tasks'].filter(user=self.request.user)
+    #     context['count'] = context['tasks'].filter(complete=False).count()
+
+    #     # search_input = self.request.GET.get('search-area') or ''
+    #     # if search_input:
+    #     #     context['tasks'] = context['tasks'].filter(title__startswith=search_input)
+        # return context
+
+
+class TaskDetail(LoginRequiredMixin, DetailView):
+    model = Task
+    context_object_name = 'task'
+    template_name = 'dashboard/task.html'
+
+
+class TaskCreate(LoginRequiredMixin, CreateView):
+    model = Task
+    fields = ['title', 'description', 'complete']
+    success_url = reverse_lazy('tasks')
+
+    def form_invalid(self, form):
+        form.instance.user = self.request.user
+        return super(TaskCreate, self).form_valid(form)
+
+
+class TaskUpdate(LoginRequiredMixin, UpdateView):
+    model = Task
+    fields = ['title', 'description', 'complete']
+    success_url = reverse_lazy('tasks')
+
+
+class TaskDelete(LoginRequiredMixin, DeleteView):
+    model = Task
+    context_object_name = 'task'
+    success_url = reverse_lazy('tasks')
+
 
 @login_required
 def dash_board(request):
@@ -73,6 +124,7 @@ def homework(request):
     return render(request, 'dashboard/homework.html', context)
 
 
+@login_required
 def update_homework(request, pk=None):
     homework = Homework.objects.get(id=pk)
     if homework.is_finished == True:
@@ -82,10 +134,13 @@ def update_homework(request, pk=None):
     homework.save()
     return redirect('homework')
 
+@login_required
 def delete_homework(request, pk=None):
     Homework.objects.get(id=pk).delete()
     return redirect('homework')
 
+
+@login_required
 def youtube(request):
     if request.method == "POST":
         form = DashboardForm(request.POST)
@@ -118,3 +173,23 @@ def youtube(request):
         form = DashboardForm()
     context = {'form':form}
     return render(request, 'dashboard/youtube.html',context)
+
+
+@login_required
+def dictionary(request):
+    return render(request, 'dashboard/dictionary.html')
+
+@login_required
+def word(request):
+    search = request.GET.get('word-search')
+    dictionary = PyDictionary()
+    meaning = dictionary.meaning(search)
+    synonyms = dictionary.synonym(search)
+    antonyms = dictionary.antonym(search)
+    context = {
+        'meaning': meaning['Noun'][0],
+        'synonyms': synonyms,
+        'antonyms': antonyms,
+    }
+    
+    return render(request, 'dashboard/word.html', context)

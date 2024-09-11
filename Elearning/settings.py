@@ -26,6 +26,27 @@ SECRET_KEY = 'django-insecure-ou2#7h$=+s%$39yvjbfr&+$eln(pxpfr-!k)$17ar-t*^g_=vd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# env = environ.Env()
+# environ.Env.read_env()
+
+# print("EMAIL_HOST:", env('EMAIL_HOST'))
+
+
+# # Initialize environ
+# env = environ.Env()
+
+# Read .env file
+# environ.Env.read_env()
+
+# Set these values 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587  
+EMAIL_USE_TLS = True  
+EMAIL_HOST_USER = 'ejohdaryl@gmail.com'  
+EMAIL_HOST_PASSWORD = 'pkqa iroc rfof sxdp'
+
+
+
 ALLOWED_HOSTS = []
 
 MEDIA_URL = '/media/'
@@ -48,6 +69,10 @@ INSTALLED_APPS = [
     'registration',
     'dashboard',
     'crispy_forms',
+    'chatroom',
+    'course_enlistment',
+    'course_enrollment',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
