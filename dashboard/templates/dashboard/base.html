@@ -149,10 +149,10 @@
     <script>
         function changeColor(){
               const body=document.body;
-              const text=document.getElementById("text");
+              const text = document.querySelector('.text');
               if (body.style.backgroundColor==="black"){
-                body.style.backgroundColor="";
-                text.style.color="";
+                body.style.backgroundColor="white";
+                text.style.color="black";
               }else {
                 body.style.backgroundColor="black";
                 text.style.color="white";
