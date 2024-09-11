@@ -99,6 +99,19 @@
                     {{ request.user.username }}
                 </a>
             </li>
+            <li class="nav-item">
+              <div><button 
+                style="border-radius:25px;
+                 background-color:goldenrod"
+                     onclick="changeColor()">
+                    <i>
+                        <b>
+                 On/Off
+                    </b>
+                </i>
+                </button>
+            </div>
+            </li>
             
               
             </ul>
@@ -131,5 +144,20 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <color id="text">
+    </color>
+    <script>
+        function changeColor(){
+              const body=document.body;
+              const text=document.getElementById("text");
+              if (body.style.backgroundColor==="black"){
+                body.style.backgroundColor="";
+                text.style.color="";
+              }else {
+                body.style.backgroundColor="black";
+                text.style.color="white";
+              }
+        }
+    </script>
   </body>
 </html>
