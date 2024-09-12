@@ -18,8 +18,10 @@
   }
 </style>
 
+
+
 <section class="container text-center">
-  <h3>Welcome</h3>
+  <h3>Welcome {{request.user.username|title}}</h3>
   <h4 style="text-align: center; margin-bottom: 30px;">Recommended Courses</h4>
 
   <!-- Recommended Courses Section -->
@@ -53,6 +55,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-4">
       <div class="card">
         <img src="{% static 'images/modern react.jpg' %}" class="card-img-top" alt="Course 2">
@@ -63,6 +66,7 @@
         </div>
       </div>
     </div>
+    
     <div class="col-md-4">
       <div class="card">
         <img src="{% static 'images/Django.jpeg' %}" class="card-img-top" alt="Course 3">
@@ -88,6 +92,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-4">
       <div class="card">
         <img src="{% static 'images/software.jpeg' %}" class="card-img-top" alt="Course 5">
@@ -98,6 +103,7 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-4">
       <div class="card">
         <img src="{% static 'images/network.jpeg' %}" class="card-img-top" alt="Course 6">
@@ -110,9 +116,15 @@
     </div>
   </div>
 
-  <hr> <br>
+  <hr>
+  
+  <br><br><br>
 
+  <hr>
+
+  
   <!-- Card Section 1 -->
+
   <div class="row">
     <div class="col-md-3">
       <a href="{% url 'notes' %}">
@@ -137,8 +149,9 @@
         </div>
       </a>
     </div>
+
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'youtube' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/youtube.jpg' %}" alt="YouTube image">
           <div class="card-body">
@@ -148,8 +161,9 @@
         </div>
       </a>
     </div>
+
     <div class="col-md-3">
-      <a href="#">
+      <a href="{% url 'tasks' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/todo.jpg' %}" alt="To-Do image">
           <div class="card-body">
@@ -164,6 +178,7 @@
   <br><br><br>
 
   <!-- Card Section 2 -->
+   
   <div class="row">
     <div class="col-md-3">
       <a href="#">
@@ -190,6 +205,7 @@
         </div>
       </a>
     </div>
+
     <div class="col-md-3">
       <a href="#">
         <div class="card">

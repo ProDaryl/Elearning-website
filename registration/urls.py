@@ -18,8 +18,7 @@ urlpatterns = [
     # path('teacher/', views.teacher, name='teacher'),
     path('profile', views.profile, name='profile'),
     path('about/', views.about, name='about'),
-    path('contact/', views.contact_view, name='contact'),
-    path('submission-successful/', views.submission_successful_view, name='submission_successful'),
+    path('contact/', views.contact, name='contact'),
     path('select_role', views.select_role, name='select_role'),
     path('forms', views.role_form, name='forms')
 ]
