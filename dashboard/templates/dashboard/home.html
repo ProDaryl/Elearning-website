@@ -23,6 +23,25 @@
   <h4 style="text-align: center; margin-bottom: 30px;">Recommended Courses</h4>
 
   <!-- Recommended Courses Section -->
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>Enrolled Courses</title>
+  </head>
+  <body>
+      <h1>Enrolled Courses</h1>
+  
+      {% if enrollments %}
+          <ul>
+              {% for enrollment in enrollments %}
+                  <li>{{ enrollment.course.name }} - Enrolled on {{ enrollment.enrollment_date }}</li>
+              {% endfor %}
+          </ul>
+      {% else %}
+          <p>You are not enrolled in any courses.</p>
+      {% endif %}
+  </body>
+  </html>
   <div class="row">
     <div class="col-md-4">
       <div class="card">
