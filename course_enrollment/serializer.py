@@ -6,7 +6,8 @@ class Userserializer(serializers.ModelSerializer):
     class Meta:
         model= User
         fields=['id','username', 'email']
+
 class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
         model= Enrollment
-        fields=['id','user','course']
+        fields = ['id', 'user', 'course_title', 'enrolled_at', 'progress']
