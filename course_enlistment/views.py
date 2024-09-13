@@ -7,6 +7,8 @@ from django.contrib import messages
 @login_required
 def course_list(request):
     courses = Course.objects.all()
+    for course in courses:
+        course.is_enrolled = models.Enrollment.objects.filter(user=request.user, course=course).exists()
     return render(request, 'course_enlistment/course_list.html', {'courses': courses})
 
 @login_required

@@ -1,4 +1,7 @@
 from django.shortcuts import redirect, render
+
+from course_enlistment.models import Course
+from course_enrollment.models import Enrollment
 from  .forms import *
 from django.contrib import messages
 from django.views import generic
@@ -59,7 +62,9 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
 
 @login_required
 def dash_board(request):
-    return render(request, 'dashboard/home.html')
+    courses = Course.objects.all()
+    enrolled_courses = Course.objects.filter(enrollment__user=request.user)
+    return render(request, 'dashboard/home.html', {'courses': enrolled_courses})
 
 @login_required
 def notes(request):
