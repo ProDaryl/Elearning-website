@@ -72,11 +72,7 @@
 </body>
 </html>
 
-                    <form action="{% url 'unenroll' enrollment.course.id %}" method="POST" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit">Unenroll</button>
-                    </form>
-                </li>
+    <a href="{% url 'unenroll' enrollment.course.id %}"></a><button type="submit">Unenroll</button>
             
 </body>
 </html>
