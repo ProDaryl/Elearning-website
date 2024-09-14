@@ -71,3 +71,29 @@
     </ul>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enrolled Courses</title>
+</head>
+<body>
+    <h1>Enrolled Courses</h1>
+
+    {% if enrollments %}
+        <ul>
+            {% for enrollment in enrollments %}
+                <li>
+                    {{ enrollment.course.name }} - Enrolled on {{ enrollment.enrollment_date }}
+                    <!-- Unenroll button -->
+                    <form action="{% url 'unenroll' enrollment.course.id %}" method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">Unenroll</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You are not enrolled in any courses.</p>
+    {% endif %}
+</body>
+</html>
