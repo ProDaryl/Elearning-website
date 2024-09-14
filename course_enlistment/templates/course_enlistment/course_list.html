@@ -86,18 +86,29 @@
 <body>
     <section class="container text-area">
         <div class="row">
-            {% for course in courses %}
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{{ course.course_image.url }}" class="card-img-top" alt="{{ course.title }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ course.title }}</h5>
-                        <p class="card-text">{{ course.description }}</p>
-                        <a href="{% url 'course_detail' course.id %}" class="btn btn-primary">View Course</a>
-                    </div>
+            <div class="container">
+                <div class="row">
+                    {% for course in courses %}
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="{{ course.course_image.url }}" class="card-img-top" alt="{{ course.title }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ course.title }}</h5>
+                                    <p class="card-text">{{ course.description }}</p>
+                                    {% if course.is_enrolled %}
+                                        <a href="{% url 'course_detail' course.id %}" class="btn btn-primary">View Course</a>
+                                    {% else %}
+                                    <button class="btn btn-primary enroll-btn" data-course-id="{{ course.id }}">Enroll Course</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p>No courses available.</p>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
+            
           </div>
         
           <br>
@@ -105,5 +116,41 @@
     </section>
     
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        event.preventDefault();
+        // Select all enroll buttons
+        const enrollButtons = document.querySelectorAll('.enroll-btn');
+
+        // Add event listener for each button
+        enrollButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const courseId = this.getAttribute('data-course-id');
+
+                fetch(`/api/enroll/${courseId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({
+                        course_id: courseId,
+                        user_id: '{{ request.user.id }}'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    // Redirect to dashboard or reload page after successful enrollment
+                    window.location.href = "/dashboard";
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    }); 
+</script>
+
 </html>
 {% endblock %}
