@@ -8,6 +8,69 @@
   <title>Contact - E-Learning Website</title>
   <link rel="stylesheet" href="{% static 'styles/style1.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="shortcut icon" href="{% static 'logo.ico' %}" type="image/x-icon">
+  <style>
+    .title h2 {
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-content label {
+      font-size: 1.1em;
+      color: #333;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .contact-content input[type="text"],
+    .contact-content input[type="email"],
+    .contact-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-content input[type="submit"] {
+      background-color: #bb2b2b;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1em;
+    }
+
+    .contact-content input[type="submit"]:hover {
+      background-color: #a52828;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+
+    .end {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #333;
+    }
+  </style>
 </head>
 
 <body>
@@ -19,7 +82,7 @@
       </div>
       <ul>
         <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="{% url 'course' %}">Courses</a></li>
+        
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
       </ul>
@@ -62,12 +125,12 @@
     </div>
   </section>
 
+ 
+  <div class="end">
+    <p>&copy; 2024 E-Learning. All rights reserved.</p>
+  </div>
 
-    <div class="end">
-      <p>&copy; 2024 E-Learning. All rights reserved.</p>
-    </div>
 
-    
   <script src="{% static 'scripts/script.js' %}"></script>
 </body>
 

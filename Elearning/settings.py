@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'registration',
     'dashboard',
     'crispy_forms',
+    'chatroom',
     'course_enlistment',
     'course_enrollment',
     'rest_framework',

@@ -1,7 +1,8 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import Course, Enrollment
+from .models import Enrollment
+from course_enlistment.models import Course
 from .serializer import Userserializer,EnrollmentSerializer
 from django.contrib.auth.models import User
 

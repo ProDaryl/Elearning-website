@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Eduflectra</title>
     <link rel="stylesheet" href="{% static 'signup/styles.css' %}" />
+    <link rel="shortcut icon" href="{% static 'logo.ico' %}" type="image/x-icon">
     <style>
       .error-message {
         color: #ff4d4d;
@@ -32,32 +33,61 @@
   </head>
   <body>
     <div class="container">
-      <div class="logo-container">
-        <img
-          src="{% static 'signup/Elearning-logo.jpeg' %}"
-          alt="Eduflectra Logo"
-        />
-      </div>
-
-      <div class="form-container">
-        {% for message in messages %}
-        <div class="error-message" id="login-error">{{message}}</div>
-        {% endfor %}
-
-        <form id="login-form" class="active" method="POST" action="login">
-          {% csrf_token %}
-          <h2>Login</h2>
-          <input type="text" placeholder="Username" name="username" required />
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            required
+      <div><button 
+        style="border-radius:25px;
+         background-color:goldenrod"
+             onclick="changeColor()">
+            <i>
+                <b>
+         On/Off
+            </b>
+        </i>
+        </button>
+    </div>
+      <color id="text">
+      </color>
+      <script>
+          function changeColor(){
+                const body=document.body;
+                const text=document.getElementById("text");
+                if (body.style.backgroundColor==="black"){
+                  body.style.backgroundColor="";
+                  text.style.color="";
+                }else {
+                  body.style.backgroundColor="black";
+                  text.style.color="white";
+                }
+          }
+      </script>
+    <div class="main">
+      
+        <div class="logo-container">
+          <img
+            src="{% static 'signup/Elearning-logo.jpeg' %}"
+            alt="Eduflectra Logo"
           />
-          <button type="submit">Login</button>
-          <p>Don't have an account? <a href="signup">Signup</a></p>
-        </form>
+        </div>
+        <div class="form-container">
+          {% for message in messages %}
+          <div class="error-message" id="login-error">{{message}}</div>
+          {% endfor %}
+          <form id="login-form" class="active" method="POST" action="login">
+            {% csrf_token %}
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" name="username" required />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+            />
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="signup">Signup</a></p>
+          </form>
+        </div>
       </div>
     </div>
-  </body>
-</html>
+        </body>
+      
+      </html>
+    

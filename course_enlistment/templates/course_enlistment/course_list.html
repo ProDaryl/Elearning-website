@@ -1,3 +1,7 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,46 +10,100 @@
     <title>Available Courses</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 20px;
         }
         h1 {
-            color: #333;
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
         }
-        .course-list {
-            list-style-type: none;
-            padding: 0;
+        .course-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
         .course-item {
-            background-color: #fff;
-            margin-bottom: 15px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .course-item:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
         }
         .course-item a {
             text-decoration: none;
-            color: #007BFF;
-            font-size: 1.2em;
+            color: #007bff;
+            font-size: 1.3em;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .course-item a:hover {
+            color: #0056b3;
         }
         .course-item p {
-            margin: 5px 0;
+            margin: 10px 0;
+            color: #495057;
+            font-size: 1em;
+            line-height: 1.4;
         }
+        .course-item p strong {
+            color: #212529;
+        }
+
+        .card-text {
+            font-size: 12px; 
+            word-spacing: 0.1em;
+            line-height: 1.5; 
+            text-align: left;
+            margin-top: 10px; 
+        }
+
+        .col-md-4 {
+            margin-bottom: 2rem;
+        }
+
     </style>
 </head>
+<h1>Available Courses</h1>
 <body>
-    <h1>Available Courses</h1>
-    <ul class="course-list">
-        {% for course in courses %}
-        <li class="course-item">
-            <a href="{% url 'course_detail' course.id %}">{{ course.title }}</a>
-            <p><strong>Description:</strong> {{ course.description }}</p>
-            <p><strong>Instructor:</strong> {{ course.instructor }}</p>
-            <p><strong>Duration:</strong> {{ course.duration }} hours</p>
-        </li>
-        {% endfor %}
-    </ul>
+    <section class="container text-area">
+        <div class="row">
+            {% for course in courses %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ course.course_image.url }}" class="card-img-top" alt="{{ course.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course.title }}</h5>
+                        <p class="card-text">{{ course.description }}</p>
+                        <a href="{% url 'course_detail' course.id %}" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+        
+          <br>
+        
+    </section>
+    
 </body>
 </html>
+{% endblock %}

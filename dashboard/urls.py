@@ -16,4 +16,6 @@ urlpatterns = [
     path('update_homework/<int:pk>',views.update_homework,name='update-homework'),
     path('delete_homework/<int:pk>',views.delete_homework,name="delete-homework"),
     path('youtube', views.youtube, name="youtube"),
+    path('dictionary', views.dictionary, name='dictionary'),
+    path('word', views.word, name='word'),
 ]

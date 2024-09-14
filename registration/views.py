@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseBadRequest
-from django.contrib.auth.models import User, auth
+from django.contrib.auth.models import User, Group, auth
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -22,14 +22,14 @@ def select_role(request):
     return render(request, 'select_role.html')
 
 # Dynamic form view
-def role_form(request):
-    role = request.GET.get('role')
+# def role_form(request):
+#     role = request.GET.get('role')
 
-    if role not in ['student', 'teacher']:
-        return HttpResponseBadRequest("Invalid role selected.")
+#     if role not in ['student', 'teacher']:
+#         return HttpResponseBadRequest("Invalid role selected.")
 
-    context = {'role': role}
-    return render(request, 'login.html', context)
+#     context = {'role': role}
+#     return render(request, 'login.html', context)
 
 @login_required
 def profile(request):
@@ -63,6 +63,8 @@ def register(request):
         email = request.POST['email']
         password = request.POST['password']
         confirm_pass = request.POST['confirmPass']
+        isStaff = request.POST.get('isTeacher', False) == 'on'
+        print(isStaff)
 
         if password == confirm_pass:
             if User.objects.filter(email=email).exists():
@@ -75,6 +77,14 @@ def register(request):
                 user = User.objects.create_user(username=username, 
                                                 email=email, 
                                                 password=password)
+
+                if isStaff:
+                    teacher_group, created = Group.objects.get_or_create(name='Teacher')
+                    user.groups.add(teacher_group)
+                else:
+                    student_group, created = Group.objects.get_or_create(name='Student')
+                    user.groups.add(student_group)
+
                 send_mail(
                     subject='Welcome to Eduflecta',
                     message='''Thank you for trusting us Eduflectra. 
@@ -82,7 +92,7 @@ def register(request):
                     our courses and that they will suit your needs.''',
                     from_email=None,
                     recipient_list=[email],
-                    fail_silently=False
+                    fail_silently=True
                 )
                 user.save()
                 return redirect('dashboard')
@@ -92,8 +102,8 @@ def register(request):
     else:
         return render(request, 'signup.html')
             
-# def dashboard(request):
-#     return render(request, 'dashboard.html')
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 @login_required
 def profile(request):
