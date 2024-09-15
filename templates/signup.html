@@ -32,6 +32,19 @@
     </style>
   </head>
   <body>
+    <div><button 
+      style="border-radius:25px;
+       background-color:goldenrod"
+           onclick="changeColor()">
+          <i>
+              <b>
+       On/Off
+          </b>
+      </i>
+      </button>
+  </div>
+      <color id="text">
+      </color>
     <div class="container">
       <div class="logo-container">
         <img
@@ -71,4 +84,17 @@
       </div>
     </div>
   </body>
+  <script>
+    function changeColor(){
+          const body=document.body;
+          const text=document.getElementById("text");
+          if (body.style.backgroundColor==="black"){
+            body.style.backgroundColor="";
+            text.style.color="";
+          }else {
+            body.style.backgroundColor="black";
+            text.style.color="white";
+          }
+    }
+</script>
 </html>
