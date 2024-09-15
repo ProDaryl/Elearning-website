@@ -38,7 +38,7 @@ class EnrollView(APIView):
         return Response({'message': 'User enrolled in this course successfully'}, status=status.HTTP_201_CREATED)
 
 class UnenrollView(APIView):
-    def post(self, request):
+    def post(self, request,):
         user_id =request.data.get('user_id')
         course_id =request.data.get('course_id')
         try:

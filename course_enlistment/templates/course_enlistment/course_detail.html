@@ -1,3 +1,6 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +51,21 @@
             text-decoration: none;
             color: #007BFF;
         }
+        .unenroll-btn {
+            background-color: #dc3545; /* Bootstrap's danger color */
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .unenroll-btn:hover {
+            background-color: #c82333; /* Darker red for hover effect */
+        }
+        
     </style>
 </head>
 <body>
@@ -55,6 +73,8 @@
     <p class="course-description">{{ course.description }}</p>
 
     <h2>Modules</h2>
+    <button class="btn btn-primary unenroll-btn" data-course-id="{{ course.id }}">Unenroll</button>
+    
     <ul class="module-list">
         {% for module in modules %}
         <li class="module-item">
@@ -69,31 +89,42 @@
         </li>
         {% endfor %}
     </ul>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Enrolled Courses</title>
-</head>
-<body>
-    <h1>Enrolled Courses</h1>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        event.preventDefault();
+        // Select all enroll buttons
+        const unenrollButtons = document.querySelectorAll('.unenroll-btn');
 
-    {% if enrollments %}
-        <ul>
-            {% for enrollment in enrollments %}
-                <li>
-                    {{ enrollment.course.name }} - Enrolled on {{ enrollment.enrollment_date }}
-                    <!-- Unenroll button -->
-                    <form action="{% url 'unenroll' enrollment.course.id %}" method="POST" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit">Unenroll</button>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>You are not enrolled in any courses.</p>
-    {% endif %}
-</body>
+        // Add event listener for each button
+        unenrollButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const courseId = this.getAttribute('data-course-id');
+                console.log(courseId);
+
+                fetch(`/api/unenroll/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({
+                        course_id: courseId,
+                        user_id: '{{ request.user.id }}'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    // Redirect to dashboard or reload page after successful enrollment
+                    window.location.href = "/dashboard";
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    }); 
+</script>    
 </html>
+{% endblock %}

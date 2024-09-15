@@ -188,13 +188,24 @@ def dictionary(request):
 def word(request):
     search = request.GET.get('word-search')
     dictionary = PyDictionary()
-    meaning = dictionary.meaning(search)
-    synonyms = dictionary.synonym(search)
-    antonyms = dictionary.antonym(search)
+
+    meaning = None
+    synonyms = None
+    antonyms = None
+
+    try:
+        # Fetch the meaning, synonyms, and antonyms from the dictionary
+        meaning = dictionary.meaning(search)
+        synonyms = dictionary.synonym(search)
+        antonyms = dictionary.antonym(search)
+    except Exception as e:
+        print(f"Error fetching dictionary data: {e}")
+
+    # Prepare context with fallback values if any data is missing
     context = {
-        'meaning': meaning['Noun'][0],
-        'synonyms': synonyms,
-        'antonyms': antonyms,
+        'meaning': meaning['Noun'][0] if meaning and 'Noun' in meaning else "No meaning found",
+        'synonyms': synonyms if synonyms else ["No synonyms found"],
+        'antonyms': antonyms if antonyms else ["No antonyms found"],
     }
-    
+
     return render(request, 'dashboard/word.html', context)
