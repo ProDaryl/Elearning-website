@@ -102,8 +102,8 @@ def register(request):
     else:
         return render(request, 'signup.html')
             
-# def dashboard(request):
-#     return render(request, 'dashboard.html')
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 @login_required
 def profile(request):

@@ -1,7 +1,22 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+<link rel="shortcut icon" href="{% static 'logo.ico' %}" type="image/x-icon">
 <style>
 body {
   margin: 0 auto;
@@ -51,6 +66,147 @@ body {
   float: left;
   color: #999;
 }
+
+/* General Container */
+.rooms-container {
+    padding: 20px;
+}
+
+/* Room List Styles */
+.room-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.room-list li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.room-list li:hover {
+    background-color: #e0e0e0;
+}
+
+.room-list li a {
+    text-decoration: none;
+    color: #007bff; /* Blue color for links */
+    font-weight: bold;
+}
+
+.room-list li a:hover {
+    text-decoration: underline;
+}
+
+/* Plus Button Styles */
+#open-modal-btn {
+    font-size: 24px;
+    padding: 10px;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+}
+
+#open-modal-btn:hover {
+    background-color: #218838; /* Darker green */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: red;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Blue color for the button */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+.list-group-item {
+  background-color: #f8f9fa; /* Lighter background */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  background-color: #e9ecef; /* Slightly darker on hover */
+}
+
+a.text-primary:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+.badge {
+  font-size: 0.8rem;
+}
+
 </style>
 </head>
 <body>
@@ -107,18 +263,50 @@ body {
     }
     </style>
 
-    <form id="post-form" method="POST" action="checkview">
-        {% csrf_token %}
-        <label>Course Name</label>
-        <input type="text" name="room_name" id="room_name" width="100px" />
-        <label>Username</label>
-        <input type="text" name="username" id="username" width="100px" />
-        <input type="submit" value="Enter Room">
-    </form>
+ <!-- Container for the list of rooms and plus button -->
+<div class="rooms-container">
+  <h2>Available Rooms</h2>
+
+  <!-- List of rooms -->
+  <div class="room-list">
+    <ul class="list-group list-group-flush">
+      {% for room in rooms %}
+      <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <a href="{% url 'room' room.name %}" class="text-decoration-none text-primary fw-bold">
+          {{ room.name }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Plus Button to Trigger Modal -->
+  <button class="btn btn-success" id="open-modal-btn">+</button>
+</div>
+
+<!-- Modal for Adding a Room -->
+<div id="room-modal" class="modal">
+  <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3>Add a Room</h3>
+
+      <form id="add-room-form" method="POST" action="checkview">
+          {% csrf_token %}
+          <input type="hidden" name="username" id="modal-username" value="{{ request.user.username }}">
+
+          <div class="form-group">
+              <label for="room-name">Room Name:</label>
+              <input type="text" id="room-name" name="room_name" class="form-control" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add Room</button>
+      </form>
+  </div>
 </div>
 
 
 </body>
+
  <script>
             function changeColor(){
                   const body=document.body;
@@ -131,6 +319,26 @@ body {
                     text.style.color="white";
                   }
             }
-        </script>
+       
+
+
+
+  document.getElementById("open-modal-btn").addEventListener("click", function() {
+      document.getElementById("room-modal").style.display = "block";
+  });
+  
+  document.querySelector(".close-modal").addEventListener("click", function() {
+      document.getElementById("room-modal").style.display = "none";
+  });
+  
+  window.onclick = function(event) {
+      if (event.target == document.getElementById("room-modal")) {
+          document.getElementById("room-modal").style.display = "none";
+      }
+  };
+  </script>
+  
+
+
 
 </html>

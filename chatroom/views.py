@@ -4,13 +4,14 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Room
+from course_enlistment import models
 
 
 # Create your views here.
 @login_required
 def home(request):
-    rooms = Room.objects.filter()
-    return render(request, 'chatroom/chat.html')
+    rooms = Room.objects.all()
+    return render(request, 'chatroom/chat.html', {'rooms': rooms})
 
 @login_required
 def room(request, room):

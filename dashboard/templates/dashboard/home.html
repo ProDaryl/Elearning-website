@@ -20,84 +20,48 @@
 
 <section class="container text-center">
   <div class="text">
-    <h3>Welcome</h3>
-    <h4 style="text-align: center; margin-bottom: 30px;">Recommended Courses</h4>
-  </div>
+    <h3>Welcome {{request.user.username}}</h3>
 
-  <!-- Recommended Courses Section -->
+    <br><br>
+    <h4> Continue Learning </h4>
+    </div>
+
+  <br><br>
+
+  
+
   <div class="row">
+    {% for course in courses %}
     <div class="col-md-4">
-      <div class="card">
-        <img src="{% static 'images/lectures.jpg' %}" class="card-img-top" alt="Course 1">
-        <div class="card-body">
-          <h5 class="card-title">Programming with HTML and CSS</h5>
-          <p class="card-text">HTML structures the content of a webpage, while CSS styles and arranges that content to improve its visual presentation and user experience. Together, they form the foundational technologies for building and designing websites.</p>
-          <a href="#" class="btn btn-primary">View Course</a>
+        <div class="card">
+            <img src="{{ course.course_image.url }}" class="card-img-top" alt="{{ course.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ course.title }}</h5>
+                <p class="card-text">{{ course.description }}</p>
+                <a href="{% url 'course_detail' course.id %}" class="btn btn-primary">View Course</a>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="{% static 'images/modern react.jpg' %}" class="card-img-top" alt="Course 2">
-        <div class="card-body">
-          <h5 class="card-title">Modern React with Redux</h5>
-          <p class="card-text">Modern React with Redux focuses on building scalable, maintainable web applications using React for the UI and Redux for state management.</p>
-          <a href="#" class="btn btn-primary">View Course</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="{% static 'images/Django.jpeg' %}" class="card-img-top" alt="Course 3">
-        <div class="card-body">
-          <h5 class="card-title">Backend Development with Python & Django</h5>
-          <p class="card-text">Backend Development with Python & Django involves creating robust and scalable server-side applications.</p>
-          <a href="#" class="btn btn-primary">View Course</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  
+{% empty %}
+  <p>No enrolled courses found.</p>
+{% endfor %}
+</div>
+      
 
   <br>
 
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <img src="{% static 'images/python.jpeg' %}" class="card-img-top" alt="Course 4">
-        <div class="card-body">
-          <h5 class="card-title">Programming in Python</h5>
-          <p class="card-text">Python is a high-level, interpreted programming language known for its simplicity and readability.</p>
-          <a href="#" class="btn btn-primary">View Course</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="{% static 'images/software.jpeg' %}" class="card-img-top" alt="Course 5">
-        <div class="card-body">
-          <h5 class="card-title">Software Development</h5>
-          <p class="card-text">The process of designing, coding, testing, and maintaining software applications or systems.</p>
-          <a href="#" class="btn btn-primary">View Course</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="{% static 'images/network.jpeg' %}" class="card-img-top" alt="Course 6">
-        <div class="card-body">
-          <h5 class="card-title">Networking and Management</h5>
-          <p class="card-text">Networking and Management involves creating robust and scalable network infrastructure.</p>
-          <a href="#" class="btn btn-primary">View Course</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
   <hr> <br>
 
+  <div class="text">
+    <h4> You can also do: </h4>
+  </div>
+
   <!-- Card Section 1 -->
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
       <a href="{% url 'notes' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
@@ -109,7 +73,7 @@
       </a>
     </div>
    
-    <div class="col-md-3">
+    <div class="col-md-4">
       <a href="{% url 'homework' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/homework.jpg' %}" alt="Homework image">
@@ -120,7 +84,7 @@
         </div>
       </a>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
       <a href="{% url 'youtube' %}">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/youtube.jpg' %}" alt="YouTube image">
@@ -131,24 +95,10 @@
         </div>
       </a>
     </div>
-    <div class="col-md-3">
-      <a href="#">
-        <div class="card">
-          <img class="card-img-top" src="{% static 'images/todo.jpg' %}" alt="To-Do image">
-          <div class="card-body">
-            <h5 class="card-title">To-Do</h5>
-            <p class="card-text">Add your to-do lists for your day and remove them as you finish.</p>
-          </div>
-        </div>
-      </a>
-    </div>
+    
   </div>
-
-  <br><br><br>
-
   <!-- Card Section 2 -->
-  <div class="row">
-    <div class="col-md-3">
+     <!-- <div class="col-md-3">
       <a href="#">
         <div class="card">
           <img class="card-img-top" src="{% static 'images/books.jpg' %}" alt="Books image" loading="lazy">
@@ -158,45 +108,57 @@
           </div>
         </div>
       </a>
-    </div>
+    </div> -->
+    
+    <br> <br>
    
    
-   
-    <div class="col-md-3">
-      <a href="{% url 'dictionary' %}">
-        <div class="card">
-          <img class="card-img-top" src="{% static 'images/dictionary.jpg' %}" alt="Dictionary image" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">Dictionary</h5>
-            <p class="card-text">A vocabulary from a book is troubling you? No problem, enter the word, and the meaning will be displayed almost instantaneously.</p>
+    <div class="row">
+      <div class="col-md-4">
+        <a href="{% url "tasks" %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/todo.jpg' %}" alt="To-Do image">
+            <div class="card-body">
+              <h5 class="card-title">To-Do</h5>
+              <p class="card-text">Add your to-do lists for your day and remove them as you finish.</p>
+            </div>
           </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3">
-      <a href="#">
-        <div class="card">
-          <img class="card-img-top" src="{% static 'images/wiki.jpg' %}" alt="Wikipedia image" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">Wikipedia</h5>
-            <p class="card-text">Homework and assignments? Search Wikipedia to get fast results.</p>
+        </a>
+      </div>
+    
+      <div class="col-md-4">
+        <a href="{% url 'dictionary' %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/dictionary.jpg' %}" alt="Dictionary image" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Dictionary</h5>
+              <p class="card-text">A vocabulary from a book is troubling you? No problem, enter the word, and the meaning will be displayed almost instantaneously.</p>
+            </div>
           </div>
-        </div>
-      </a>
-    </div>
-   
-   
-    <div class="col-md-3">
-      <a href="{% url 'chat_index' %}">
-        <div class="card">
-          <img class="card-img-top" src="{% static 'images/chatting.jpg' %}" alt="Conversion image" loading="lazy">
-          <div class="card-body">
-            <h5 class="card-title">chat group</h5>
+        </a>
+      </div>
+      <!-- <div class="col-md-3">
+        <a href="#">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/wiki.jpg' %}" alt="Wikipedia image" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Wikipedia</h5>
+              <p class="card-text">Homework and assignments? Search Wikipedia to get fast results.</p>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div> -->
+      <div class="col-md-4">
+        <a href="{% url 'chat_index' %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/chatting.jpg' %}" alt="Conversion image" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">chat group</h5>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
 
 
 
