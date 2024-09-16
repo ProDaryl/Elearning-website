@@ -210,6 +210,19 @@ a.text-primary:hover {
 </style>
 </head>
 <body>
+  <div><button 
+    style="border-radius:25px;
+     background-color:goldenrod"
+         onclick="changeColor()">
+        <i>
+            <b>
+     On/Off
+        </b>
+    </i>
+    </button>
+</div>
+    <color id="text">
+    </color>
 
 <div align="center">
     <h2>Chat Group</h2>
@@ -294,7 +307,22 @@ a.text-primary:hover {
 
 </body>
 
-<script>
+ <script>
+            function changeColor(){
+                  const body=document.body;
+                  const text=document.getElementById("text");
+                  if (body.style.backgroundColor==="black"){
+                    body.style.backgroundColor="";
+                    text.style.color="";
+                  }else {
+                    body.style.backgroundColor="black";
+                    text.style.color="white";
+                  }
+            }
+       
+
+
+
   document.getElementById("open-modal-btn").addEventListener("click", function() {
       document.getElementById("room-modal").style.display = "block";
   });
@@ -310,6 +338,7 @@ a.text-primary:hover {
   };
   </script>
   
+
 
 
 </html>
