@@ -10,7 +10,7 @@ dashboard/migrations/*
 
 venv
 
-.venv
+.env
 
 dashboard/migrations/*
 

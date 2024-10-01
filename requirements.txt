@@ -8,3 +8,4 @@ selenium
 crispy
 django-rest-framework
 pydictionary
+python-decouple
