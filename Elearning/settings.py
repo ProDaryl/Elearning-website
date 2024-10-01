@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-from decouple import config
+from decouple import config # type: ignore
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,18 +26,6 @@ SECRET_KEY = 'django-insecure-ou2#7h$=+s%$39yvjbfr&+$eln(pxpfr-!k)$17ar-t*^g_=vd
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-# env = environ.Env()
-# environ.Env.read_env()
-
-# print("EMAIL_HOST:", env('EMAIL_HOST'))
-
-
-# # Initialize environ
-# env = environ.Env()
-
-# Read .env file
-# environ.Env.read_env()
 
 # Set these values 
 EMAIL_HOST = config('EMAIL_HOST')
