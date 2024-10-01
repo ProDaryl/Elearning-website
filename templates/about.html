@@ -84,6 +84,19 @@
 </head>
 
 <body>
+  <div><button 
+    style="border-radius:25px;
+     background-color:goldenrod"
+         onclick="changeColor()">
+        <i>
+            <b>
+     On/Off
+        </b>
+    </i>
+    </button>
+</div>
+    <color id="text">
+    </color>
   <div class="header">
     <nav>
       <div class="logo">
@@ -131,7 +144,7 @@
           <div class="card">
             <img class="card-img-top" src="{% static 'images/ateh.jpg' %}" alt="ateh">
             <div class="card-body">
-              <p class="card-text">Ateh Damaris. The Frontend Developer</p>
+              <p class="card-text">Ateh Damaris. The Frontend lead Developer</p>
             </div>
           </div>
         </a>
@@ -142,7 +155,7 @@
           <div class="card">
             <img class="card-img-top" src="{% static 'images/ben.jpg' %}" alt="ben">
             <div class="card-body">
-              <p class="card-text">Kihdze Bernard. The Backend Developer</p>
+              <p class="card-text">Kihdze Bernard. The Backend lead</p>
             </div>
           </div>
         </a>
@@ -153,7 +166,7 @@
           <div class="card">
             <img class="card-img-top" src="{% static 'images/bryan.jpg' %}" alt="bryan">
             <div class="card-body">
-              <p class="card-text">Ndonkou Lakoudjeu Bryan. The Documentation</p>
+              <p class="card-text">Ndonkou Lakoudjeu Bryan Gatlin. Backend devloper and front end for course enrollment</p>
             </div>
           </div>
         </a>
@@ -175,7 +188,7 @@
           <div class="card">
             <img class="card-img-top" src="{% static 'images/ankiambom.jpg' %}" alt="Image 6">
             <div class="card-body">
-              <p class="card-text">Ankiambom Richcal Chai. The Advisor</p>
+              <p class="card-text">Ankiambom Richcal Chai. The API developer</p>
             </div>
           </div>
         </a>
@@ -209,5 +222,54 @@
 
   <script src="{% static 'scripts/script.js' %}"></script>
 </body>
+<script>
+  function changeColor(){
+        const body=document.body;
+        const text=document.getElementById("text");
+        if (body.style.backgroundColor==="black"){
+          body.style.backgroundColor="";
+          text.style.color="";
+        }else {
+          body.style.backgroundColor="black";
+          text.style.color="white";
+        }
+  }
+</script>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>About Us - Our Team</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .role-section {
+            margin-bottom: 30px;
+        }
+        .role-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
 
 </html>
